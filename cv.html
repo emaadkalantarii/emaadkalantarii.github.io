@@ -7,6 +7,14 @@
   <meta name="description" content="Curriculum Vitae of Emad Kalantari — ML Engineer, Data Scientist, University of Luxembourg." />
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
   <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    /* Ensure fade-in sections are always visible regardless of JS state */
+    .fade-in {
+      opacity: 1 !important;
+      transform: none !important;
+      visibility: visible !important;
+    }
+  </style>
 </head>
 <body class="page-body">
 
@@ -43,11 +51,7 @@
           MSc Information &amp; Computer Sciences · ML &amp; Data Science · Luxembourg
         </p>
       </div>
-      <!-- Download button — put your PDF at files/cv.pdf -->
-      <a href="files/cv.pdf" download class="btn btn-primary" style="margin-top: 8px; align-self:center;">
-        <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zm-8 2V5h2v6h1.17L12 13.17 9.83 11H11zm-6 7h14v2H5z"/></svg>
-        Download PDF
-      </a>
+
     </div>
   </div>
 
@@ -218,9 +222,9 @@
         <div class="skill-group">
           <div class="skill-group-label">Interpersonal</div>
           <div class="tags-row">
-            <span class="tag tag-gray">Collaboration</span>
-            <span class="tag tag-gray">Analytical Thinking</span>
-            <span class="tag tag-gray">Fast Learner</span>
+            <span class="tag">Collaboration</span>
+            <span class="tag">Analytical Thinking</span>
+            <span class="tag">Fast Learner</span>
           </div>
         </div>
       </div>
@@ -228,7 +232,7 @@
 
     <!-- Download reminder -->
     <div style="text-align:center; padding: 16px 0 8px;">
-      <a href="files/cv.pdf" download class="btn btn-outline">
+      <a href="files/cv.pdf" target="_blank" rel="noopener" class="btn btn-outline">
         <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:currentColor;"><path d="M19 9h-4V3H9v6H5l7 7 7-7zm-8 2V5h2v6h1.17L12 13.17 9.83 11H11zm-6 7h14v2H5z"/></svg>
         Download Full CV as PDF
       </a>
@@ -241,10 +245,4 @@
   <footer class="footer">
     <div class="container footer-inner">
       <span><span class="footer-name">Emad Kalantari</span> · Luxembourg</span>
-      <span><a href="mailto:emaadkalantarii@gmail.com" style="color:var(--text-muted);">emaadkalantarii@gmail.com</a></span>
-    </div>
-  </footer>
-
-  <script src="assets/js/main.js"></script>
-</body>
-</html>
+      <span><a href="/cdn-cgi/l/email-protection#31545c5050555a505d505f455043585871565c50585d1f525e5c" style="color:var(--text-muted);"><span class="__cf_email__" data-cfemail="acc9c1cdcdc8c7cdc0cdc2d8cddec5c5
