@@ -28,6 +28,15 @@
   --font-body:    'Manrope', system-ui, sans-serif;
   --font-mono:    'JetBrains Mono', monospace;
   --transition:   0.22s cubic-bezier(0.4,0,0.2,1);
+
+  /* Consistent vertical rhythm */
+  --space-1: 8px;
+  --space-2: 12px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 48px;
+  --space-7: 64px;
 }
 
 /* ── Reset ─────────────────────────────────────────────────── */
@@ -54,7 +63,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .mt-8  { margin-top: 2rem; }
 .mt-12 { margin-top: 3rem; }
 
-/* ── Typography ────────────────────────────────────────────── */
+/* ── Typography ────────────────────────���───────────────────── */
 .display-name {
   font-family: var(--font-display);
   font-size: clamp(2.8rem, 6vw, 5rem);
@@ -75,7 +84,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: 600;
   color: var(--text);
-  margin-bottom: 0.4rem;
+  margin: 0 0 var(--space-4) 0;
 }
 .section-label {
   font-size: 0.72rem;
@@ -83,14 +92,15 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 0.6rem;
-  display: block;
+  display: inline-block;
+  margin: 0 0 var(--space-2) 0;
 }
 .lead {
   font-size: 1.1rem;
   color: var(--text-muted);
   line-height: 1.75;
   max-width: 640px;
+  margin: 0 0 var(--space-5) 0;
 }
 .mono {
   font-family: var(--font-mono);
@@ -242,7 +252,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .card:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
 
-/* ── Tag / Badge ───────────────────────────────────────────── */
+/* ── Tag / Badge ──��────────────────────────────────────────── */
 .tag {
   display: inline-flex;
   align-items: center;
@@ -296,21 +306,21 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .divider {
   height: 1px;
   background: var(--border);
-  margin: 40px 0;
+  margin: var(--space-6) 0;
 }
 
 /* ── Page Hero ─────────────────────────────────────────────── */
 .page-hero {
-  padding: 64px 0 48px;
+  padding: var(--space-7) 0 var(--space-6);
   border-bottom: 1px solid var(--border);
-  margin-bottom: 64px;
+  margin-bottom: var(--space-7);
 }
-.page-hero .page-title { margin-bottom: 12px; }
-.page-hero .lead { color: var(--text-muted); }
+.page-hero .page-title { margin-bottom: var(--space-3); }
+.page-hero .lead { color: var(--text-muted); margin-bottom: 0; }
 
 /* ── HOME: Hero ────────────────────────────────────────────── */
 .hero {
-  padding: 80px 0 70px;
+  padding: var(--space-7) 0 calc(var(--space-7) - var(--space-2));
   position: relative;
   overflow: hidden;
 }
@@ -361,11 +371,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-size: 1.1rem;
   font-weight: 500;
   color: var(--text-muted);
-  margin: 12px 0 20px;
+  margin: var(--space-3) 0 var(--space-4);
   line-height: 1.5;
 }
 .hero-subtitle .sep { margin: 0 8px; color: var(--border); }
-.hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: var(--space-4); }
 
 @media (max-width: 640px) {
   .hero-inner { grid-template-columns: 1fr; gap: 32px; }
@@ -376,15 +386,28 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  margin-top: 40px;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
 }
 @media (max-width: 700px) { .about-grid { grid-template-columns: 1fr; } }
+
 .about-item {
   display: flex;
   align-items: flex-start;
   gap: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px 22px;
+  box-shadow: 0 10px 24px rgba(16, 24, 40, 0.06);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
 }
+.about-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(16, 24, 40, 0.08);
+  border-color: rgba(var(--accent-rgb), 0.22);
+}
+
 .about-icon {
   width: 40px; height: 40px;
   border-radius: 10px;
@@ -416,7 +439,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   overflow: hidden;
   box-shadow: var(--shadow);
   transition: box-shadow var(--transition), transform var(--transition);
-  margin-bottom: 32px;
+  margin: 0 0 var(--space-6) 0;
 }
 .project-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-3px); }
 .project-card-header {
@@ -448,13 +471,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-size: 0.95rem;
   color: var(--text-muted);
   line-height: 1.8;
-  margin-bottom: 24px;
+  margin-bottom: var(--space-4);
 }
 .project-metrics {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 16px;
-  margin: 24px 0;
+  margin: var(--space-4) 0;
   padding: 20px;
   background: var(--bg);
   border-radius: var(--radius);
@@ -476,7 +499,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   margin-top: 4px;
   font-weight: 500;
 }
-.project-bullets { margin: 16px 0; padding-left: 0; }
+.project-bullets { margin: var(--space-3) 0; padding-left: 0; }
 .project-bullets li {
   position: relative;
   padding-left: 22px;
@@ -506,7 +529,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 /* ── CV PAGE ───────────────────────────────────────────────── */
-.cv-section { margin-bottom: 56px; }
+.cv-section { margin-bottom: var(--space-6); }
 .cv-section-title {
   font-family: var(--font-display);
   font-size: 1.4rem;
@@ -545,10 +568,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   padding-top: 3px;
   line-height: 1.4;
 }
-.timeline-dot {
-  display: none;
-}
-.timeline-content {}
+.timeline-dot { display: none; }
 .timeline-role {
   font-size: 1rem;
   font-weight: 700;
@@ -561,9 +581,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-weight: 500;
   margin: 2px 0 10px;
 }
-.timeline-bullets {
-  padding-left: 0;
-}
+.timeline-bullets { padding-left: 0; }
 .timeline-bullets li {
   position: relative;
   padding-left: 16px;
@@ -643,9 +661,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   padding: 10px;
   transition: transform 0.3s ease;
 }
-.cert-image-wrap:hover img {
-  transform: scale(1.03);
-}
+.cert-image-wrap:hover img { transform: scale(1.03); }
 .cert-placeholder-icon {
   display: flex;
   flex-direction: column;
@@ -677,11 +693,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   line-height: 1.4;
   flex: 1;
 }
-.cert-status {
-  margin-top: 12px;
-}
+.cert-status { margin-top: 12px; }
 .cert-status .tag { font-size: 0.68rem; }
-.in-progress-section { margin-top: 56px; }
+.in-progress-section { margin-top: var(--space-6); }
 .in-progress-section .section-heading { color: var(--text-muted); }
 
 /* Compact in-progress card (no image) */
@@ -757,6 +771,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   transition: color var(--transition);
 }
 .contact-item-value a:hover { color: var(--accent-hover); }
+
+/* Keep social-card styles in case you still use them somewhere */
 .social-card {
   display: flex;
   align-items: center;
