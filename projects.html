@@ -219,6 +219,167 @@
       </div>
     </article>
 
+    <!-- ── Project 3: LLM Historical Network Extraction ───── -->
+    <article class="project-card fade-in">
+      <div class="project-card-header">
+        <div>
+          <span class="project-card-num">PROJECT 03</span>
+          <h2 class="project-card-title">Network Data Extraction using LLMs<br>for Historical Documents</h2>
+        </div>
+        <div style="flex-shrink:0;">
+          <span class="tag tag-green">NLP · Digital History</span>
+        </div>
+      </div>
+
+      <div class="project-card-body">
+        <p class="project-card-desc">
+          An end-to-end NLP pipeline for extracting structured social network data — entities and their
+          relationships — from long-form WWII-era historical memoirs using Large Language Models.
+          The project bridges <strong>Digital History</strong> and <strong>Computer Science</strong>,
+          reconstructing survival networks of people who provided shelter, food, false documents, and
+          protection to those living underground during the Nazi persecution. Conducted over ~20 months
+          at the <strong>Luxembourg Centre for Contemporary and Digital History (C²DH)</strong>,
+          University of Luxembourg, and formed the basis of a Master's thesis in Computer Science.
+          Findings are currently being prepared for <strong>publication in a peer-reviewed journal</strong>.
+        </p>
+
+        <!-- Metrics -->
+        <div class="project-metrics">
+          <div class="metric-item">
+            <div class="metric-value">0.841</div>
+            <div class="metric-label">Best F1-Score</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">0.906</div>
+            <div class="metric-label">Precision</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">0.785</div>
+            <div class="metric-label">Recall</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">+250%</div>
+            <div class="metric-label">F1 vs. Baseline</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">43</div>
+            <div class="metric-label">Methods Tested</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">176</div>
+            <div class="metric-label">Ground-Truth Relations</div>
+          </div>
+        </div>
+
+        <!-- Pipeline section -->
+        <div style="margin: 24px 0 8px;">
+          <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 14px;">Pipeline Architecture</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">① Text Cleaning</div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">② Chunking <span style="color: var(--text-muted); font-weight: 400;">(LangChain)</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">③ Coreference Resolution <span style="color: var(--text-muted); font-weight: 400;">(LLM)</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">④ Relationship Extraction <span style="color: var(--text-muted); font-weight: 400;">(LLM)</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">⑤ JSON Output</div>
+          </div>
+        </div>
+
+        <!-- Highlights -->
+        <ul class="project-bullets">
+          <li>Designed and implemented a <strong>modular NLP pipeline</strong> integrating text cleaning, overlapping chunking (LangChain RecursiveCharacterTextSplitter), LLM-based coreference resolution, and structured JSON extraction via OpenAI APIs (GPT-4o, GPT-4.1, GPT-5, o3).</li>
+          <li>Introduced a dedicated <strong>Coreference Resolution (CR) stage</strong> that resolves ambiguous pronouns ("he", "they") and collective family references ("the Wendlands") into explicit named individuals before extraction — independently increasing attribution accuracy by ~20% and reducing both false positives and false negatives.</li>
+          <li>Implemented a <strong>context window mechanism</strong> in the CR stage, providing the model with one preceding chunk as reference to resolve cross-boundary references — a CW of 1 improved recall by ~12–15% with no loss in precision; larger windows introduced noise and degraded results.</li>
+          <li>Benchmarked <strong>43 experimental configurations</strong> across 8 systematic phases, varying chunking parameters (2000–10000 chars), context window sizes, extraction strategies (one-step vs. multi-step NER+RE), prompt designs, and model selection; outputs manually reviewed and labeled (TP/FP/FN) against a curated ground-truth dataset of 176 annotated relationships.</li>
+          <li>Evolved <strong>prompt engineering</strong> from simple to advanced through three iterative stages: simple baseline prompts → refined prompts with 9 explicit relationship type definitions and inclusion/exclusion rules → advanced prompts with borderline case clarifications, reducing false positives by over 80% while maintaining recall.</li>
+          <li>Validated reproducibility via <strong>10-run stability testing</strong> of the three top configurations; the o3-based pipeline achieved mean F1 = 0.819 ± 0.01, confirming consistent and reliable performance across repeated runs.</li>
+          <li>Identified <strong>OpenAI o3</strong> as the optimal model for both CR and extraction, outperforming GPT-4.1 (+0.04 F1) and GPT-5 (+0.07 F1) — demonstrating that reasoning depth matters more than model scale for context-heavy historical texts.</li>
+        </ul>
+
+        <!-- Relationship types -->
+        <div style="margin: 20px 0; padding: 16px 20px; background: var(--bg); border-radius: var(--radius); border: 1px solid var(--border);">
+          <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 10px;">9 Extracted Relationship Categories</p>
+          <div class="tags-row" style="margin-top: 0;">
+            <span class="tag tag-gray">Shelter &amp; Protection</span>
+            <span class="tag tag-gray">Medical Care</span>
+            <span class="tag tag-gray">Food &amp; Resources</span>
+            <span class="tag tag-gray">Introductions &amp; Connections</span>
+            <span class="tag tag-gray">Employment</span>
+            <span class="tag tag-gray">False Documentation</span>
+            <span class="tag tag-gray">Information &amp; Advice</span>
+            <span class="tag tag-gray">Emotional Support</span>
+            <span class="tag tag-gray">Other Assistance</span>
+          </div>
+        </div>
+
+        <!-- Model comparison -->
+        <div style="margin: 20px 0; padding: 16px 20px; background: var(--bg); border-radius: var(--radius); border: 1px solid var(--border);">
+          <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 14px;">Top Configuration Results (10-Run Average)</p>
+          <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem;">
+              <thead>
+                <tr style="border-bottom: 2px solid var(--border);">
+                  <th style="text-align: left; padding: 8px 12px; color: var(--text-muted); font-weight: 600;">Configuration</th>
+                  <th style="text-align: center; padding: 8px 12px; color: var(--text-muted); font-weight: 600;">Precision</th>
+                  <th style="text-align: center; padding: 8px 12px; color: var(--text-muted); font-weight: 600;">Recall</th>
+                  <th style="text-align: center; padding: 8px 12px; color: var(--text-muted); font-weight: 600;">F1-Score</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--border); background: rgba(59,130,246,0.04);">
+                  <td style="padding: 10px 12px; font-weight: 600;">o3 → o3 <span style="font-size:0.75rem; color: var(--text-muted); font-weight:400;">(best overall)</span></td>
+                  <td style="text-align: center; padding: 10px 12px; font-weight: 600; color: var(--accent);">0.845</td>
+                  <td style="text-align: center; padding: 10px 12px; font-weight: 600; color: var(--accent);">0.795</td>
+                  <td style="text-align: center; padding: 10px 12px; font-weight: 700; color: var(--accent);">0.819</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border);">
+                  <td style="padding: 10px 12px;">o3 → GPT-4.1 <span style="font-size:0.75rem; color: var(--text-muted);">(highest recall)</span></td>
+                  <td style="text-align: center; padding: 10px 12px;">0.764</td>
+                  <td style="text-align: center; padding: 10px 12px;">0.866</td>
+                  <td style="text-align: center; padding: 10px 12px;">0.812</td>
+                </tr>
+                <tr>
+                  <td style="padding: 10px 12px;">o3 → GPT-5</td>
+                  <td style="text-align: center; padding: 10px 12px;">0.772</td>
+                  <td style="text-align: center; padding: 10px 12px;">0.754</td>
+                  <td style="text-align: center; padding: 10px 12px;">0.763</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 10px;">All configurations: chunk 6000/600 · context window 1 · advanced prompts · one-step extraction</p>
+        </div>
+
+        <!-- Tech Stack -->
+        <div class="tags-row">
+          <span class="tag">Python</span>
+          <span class="tag">OpenAI API</span>
+          <span class="tag">LangChain</span>
+          <span class="tag">GPT-4o</span>
+          <span class="tag">GPT-4.1</span>
+          <span class="tag">GPT-5</span>
+          <span class="tag">o3 Reasoning Model</span>
+          <span class="tag">Coreference Resolution</span>
+          <span class="tag">NER</span>
+          <span class="tag">Information Extraction</span>
+          <span class="tag">Prompt Engineering</span>
+          <span class="tag">JSON</span>
+          <span class="tag">Digital Humanities</span>
+          <span class="tag">University of Luxembourg</span>
+        </div>
+      </div>
+
+      <div class="project-card-footer">
+        <a href="https://github.com/emaadkalantarii/llm-historical-network-extraction"
+           target="_blank" rel="noopener" class="btn btn-primary">
+          <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          View on GitHub
+        </a>
+      </div>
+    </article>
+
     <!-- ── GitHub CTA ─────────────────────────────────────── -->
     <article class="project-card fade-in">
       <div class="project-card-header" style="padding: 28px 36px;">
