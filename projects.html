@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -11,6 +12,7 @@
 <body class="page-body">
 
   <!-- ── Navigation ─────────────────────────────────────── -->
+
   <nav class="nav">
     <div class="container nav-inner">
       <a href="index.html" class="nav-logo">Emad Kalantari</a>
@@ -37,6 +39,7 @@
   </nav>
 
   <!-- ── Page Hero ──────────────────────────────────────── -->
+
   <div class="page-hero">
     <div class="container">
       <span class="section-label">Portfolio</span>
@@ -49,627 +52,813 @@
   </div>
 
   <!-- ── Projects ───────────────────────────────────────── -->
+
   <div class="container">
 
-    <!-- ── Project 1: Dog Breed Classification ──────────── -->
-    <article class="project-card fade-in">
-      <div class="project-card-header">
-        <div>
-          <span class="project-card-num">PROJECT 01</span>
-          <h2 class="project-card-title">Dog Breed Classification<br>via Deep Learning &amp; Transfer Learning</h2>
+```
+<!-- ── Project 1: Dog Breed Classification ──────────── -->
+<article class="project-card fade-in">
+  <div class="project-card-header">
+    <div>
+      <span class="project-card-num">PROJECT 01</span>
+      <h2 class="project-card-title">Dog Breed Classification<br>via Deep Learning &amp; Transfer Learning</h2>
+    </div>
+    <div style="flex-shrink:0;">
+      <span class="tag tag-green">Computer Vision</span>
+    </div>
+  </div>
+
+  <div class="project-card-body">
+    <p class="project-card-desc">
+      A fine-grained image classification system capable of identifying <strong>120 dog breeds</strong>
+      from the Stanford Dogs Dataset (20,580 images). The project explores the full deep learning
+      lifecycle — from data preprocessing and augmentation design through distributed GPU training
+      to final evaluation — demonstrating strong generalization with a top-1 test accuracy of 84.20%.
+    </p>
+
+    <!-- Metrics -->
+    <div class="project-metrics">
+      <div class="metric-item">
+        <div class="metric-value">84.20%</div>
+        <div class="metric-label">Top-1 Accuracy</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-value">96.54%</div>
+        <div class="metric-label">Top-3 Accuracy</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-value">98.05%</div>
+        <div class="metric-label">Top-5 Accuracy</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-value">0.67%</div>
+        <div class="metric-label">Generalization Gap</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-value">120</div>
+        <div class="metric-label">Breed Classes</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-value">20,580</div>
+        <div class="metric-label">Training Images</div>
+      </div>
+    </div>
+
+    <!-- Highlights -->
+    <ul class="project-bullets">
+      <li>Applied transfer learning with a pretrained <strong>ResNet50 (ImageNet)</strong> backbone, replacing the final classification head for 120-class output on fine-grained dog breed recognition.</li>
+      <li>Built a robust preprocessing pipeline using <strong>bounding-box-guided cropping</strong> and 224×224 resizing, yielding ~7% accuracy gain over uncropped baselines.</li>
+      <li>Implemented aggressive on-the-fly data augmentation via <strong>Albumentations</strong> (random crops, flips, rotations, colour jitter, Gaussian noise/blur, random erasing) to combat overfitting.</li>
+      <li>Trained over <strong>50 epochs</strong> on a 2-GPU distributed setup (2× Tesla V100, <strong>University of Luxembourg HPC</strong>) using PyTorch DDP, AdamW optimiser with CosineAnnealingLR scheduling, and gradient clipping.</li>
+      <li>Achieved a generalization gap of only <strong>0.67%</strong> between validation and test accuracy, demonstrating strong model robustness and minimal overfitting.</li>
+    </ul>
+
+    <!-- Tech Stack -->
+    <div class="tags-row">
+      <span class="tag">Python</span>
+      <span class="tag">PyTorch</span>
+      <span class="tag">Torchvision</span>
+      <span class="tag">Albumentations</span>
+      <span class="tag">CUDA</span>
+      <span class="tag">PyTorch DDP</span>
+      <span class="tag">ResNet50</span>
+      <span class="tag">Scikit-learn</span>
+      <span class="tag">NumPy</span>
+      <span class="tag">Pandas</span>
+      <span class="tag">Matplotlib</span>
+      <span class="tag">Seaborn</span>
+      <span class="tag">HPC / Tesla V100</span>
+    </div>
+  </div>
+
+  <div class="project-card-footer">
+    <a href="https://github.com/emaadkalantarii/Dog-Breed-Classification-Deep-Learning"
+       target="_blank" rel="noopener" class="btn btn-primary">
+      <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      View on GitHub
+    </a>
+  </div>
+</article>
+
+<!-- ── Project 2: Spacecraft Detection ──────────────── -->
+<article class="project-card fade-in">
+  <div class="project-card-header">
+    <div>
+      <span class="project-card-num">PROJECT 02</span>
+      <h2 class="project-card-title">Spacecraft &amp; Space Debris Detection<br>via YOLOv11 Fine-Tuning</h2>
+    </div>
+    <div style="flex-shrink:0;">
+      <span class="tag tag-green">Object Detection</span>
+    </div>
+  </div>
+
+  <div class="project-card-body">
+    <p class="project-card-desc">
+      An object detection system to identify and localize <strong>10 real ESA spacecraft</strong>
+      (including SOHO, XMM-Newton, and LISA Pathfinder) alongside space debris in 1024×1024
+      satellite imagery, built on the <strong>SPARK 2022 Challenge dataset</strong>
+      (University of Luxembourg SnT). The project fine-tunes a YOLOv11-Medium model with a
+      targeted augmentation pipeline simulating real-world orbital imaging conditions.
+    </p>
+
+    <!-- Metrics -->
+    <div class="project-metrics">
+      <div class="metric-item">
+        <div class="metric-value">~86%</div>
+        <div class="metric-label">Classification Accuracy</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-value">10</div>
+        <div class="metric-label">ESA Spacecraft Classes</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-value">1024px</div>
+        <div class="metric-label">Image Resolution</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-value">YOLOv11-M</div>
+        <div class="metric-label">Base Architecture</div>
+      </div>
+    </div>
+
+    <!-- Highlights -->
+    <ul class="project-bullets">
+      <li>Fine-tuned a <strong>YOLOv11-Medium</strong> model on a custom annotated dataset for multi-class detection of ESA spacecraft (SOHO, XMM-Newton, LISA Pathfinder, and others) and space debris.</li>
+      <li>Converted bounding-box annotations from <strong>CSV format to normalized YOLO labels</strong>, handling all preprocessing and annotation pipeline engineering end-to-end.</li>
+      <li>Designed a targeted <strong>data augmentation pipeline</strong> using Albumentations (Gaussian blur, motion blur, brightness/contrast shifts, horizontal/vertical flips, additive Gaussian noise) to simulate sensor noise, orbital lighting, and motion artifacts.</li>
+      <li>Configured training with an initial learning rate of 0.01, <strong>L2 weight decay regularization</strong>, and 35 epochs with early stopping to prevent overfitting on the multi-class detection task.</li>
+      <li>Deployed training on the <strong>University of Luxembourg HPC Iris cluster</strong> via SLURM job scheduling; built a full inference pipeline generating class labels and bounding-box coordinates on unseen test imagery.</li>
+    </ul>
+
+    <!-- Spacecraft List -->
+    <div style="margin: 20px 0; padding: 16px 20px; background: var(--bg); border-radius: var(--radius); border: 1px solid var(--border);">
+      <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 10px;">Detected Spacecraft Classes</p>
+      <div class="tags-row" style="margin-top: 0;">
+        <span class="tag tag-gray">SOHO</span>
+        <span class="tag tag-gray">XMM-Newton</span>
+        <span class="tag tag-gray">LISA Pathfinder</span>
+        <span class="tag tag-gray">+ 7 other ESA spacecraft</span>
+        <span class="tag tag-gray">Space Debris</span>
+      </div>
+    </div>
+
+    <!-- Tech Stack -->
+    <div class="tags-row">
+      <span class="tag">Python</span>
+      <span class="tag">YOLOv11</span>
+      <span class="tag">Ultralytics</span>
+      <span class="tag">Albumentations</span>
+      <span class="tag">SLURM</span>
+      <span class="tag">HPC / GPU Cluster</span>
+      <span class="tag">NumPy</span>
+      <span class="tag">OpenCV</span>
+    </div>
+  </div>
+
+  <div class="project-card-footer">
+    <a href="https://github.com/emaadkalantarii/Satellite-Object-Detection-using-YOLOv11"
+       target="_blank" rel="noopener" class="btn btn-primary">
+      <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      View on GitHub
+    </a>
+  </div>
+</article>
+
+<!-- ── Project 3: EEG Topomap Classifier ───────────────── -->
+<article class="project-card fade-in">
+  <div class="project-card-header">
+    <div>
+      <span class="project-card-num">PROJECT 03</span>
+      <h2 class="project-card-title">EEG Topomap Binary Classification<br>via Deep Learning</h2>
+    </div>
+    <div style="flex-shrink:0;">
+      <span class="tag tag-green">Computer Vision</span>
+    </div>
+  </div>
+
+  <div class="project-card-body">
+    <p class="project-card-desc">
+      A binary image classification system that predicts whether a brain's neurological response
+      to a visual design stimulus is <strong>positive or negative</strong>, using EEG topographic
+      map (topomap) images as input. The project applies computer vision to a neuroscience domain —
+      replacing manual expert interpretation of EEG patterns with an end-to-end deep learning
+      pipeline. Built entirely from scratch in PyTorch on a small, class-imbalanced dataset
+      of <strong>1,178 images</strong>, achieving <strong>90.96% accuracy</strong> on a
+      fully held-out test set.
+    </p>
+
+    <!-- Metrics -->
+    <div class="project-metrics">
+      <div class="metric-item">
+        <div class="metric-value">90.96%</div>
+        <div class="metric-label">Test Accuracy</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-value">97.18%</div>
+        <div class="metric-label">Best Val Accuracy</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-value">1,178</div>
+        <div class="metric-label">Total Images</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-value">60</div>
+        <div class="metric-label">Training Epochs</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-value">2</div>
+        <div class="metric-label">Classes</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-value">Custom CNN</div>
+        <div class="metric-label">Architecture</div>
+      </div>
+    </div>
+
+    <!-- Architecture diagram -->
+    <div style="margin: 24px 0 8px;">
+      <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 14px;">Model Architecture</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
+        <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">Input <span style="color: var(--text-muted); font-weight: 400;">3×128×128</span></div>
+        <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+        <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">Conv Block 1 <span style="color: var(--text-muted); font-weight: 400;">16→32</span></div>
+        <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+        <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">Conv Block 2 <span style="color: var(--text-muted); font-weight: 400;">64→128</span></div>
+        <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+        <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">Conv Block 3 <span style="color: var(--text-muted); font-weight: 400;">256</span></div>
+        <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+        <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">Conv Block 4 <span style="color: var(--text-muted); font-weight: 400;">512</span></div>
+        <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+        <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">AdaptiveAvgPool</div>
+        <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+        <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">FC Head <span style="color: var(--text-muted); font-weight: 400;">8192→1024→1024→1</span></div>
+        <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+        <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">Sigmoid <span style="color: var(--text-muted); font-weight: 400;">→ {0, 1}</span></div>
+      </div>
+    </div>
+
+    <!-- Highlights -->
+    <ul class="project-bullets">
+      <li>Designed a custom CNN from scratch — no pretrained backbone — with four progressively deepening convolutional blocks (16→32→64→128→256→512 filters), <strong>AdaptiveAvgPool2d</strong> for input-size robustness, and dual <strong>Dropout (p=0.5)</strong> on the fully connected head, achieving strong regularization on a small dataset.</li>
+      <li>Applied <strong>stratified 70/15/15 train/val/test splits</strong> to preserve class balance across a naturally imbalanced dataset (678 bad / 500 good), ensuring evaluation integrity throughout training and final reporting.</li>
+      <li>Built a full training pipeline with on-the-fly data augmentation (random horizontal flips, ±10° rotations, brightness/contrast color jitter), <strong>BCELoss</strong>, <strong>Adam optimizer</strong> (lr = 0.001), and <strong>ReduceLROnPlateau</strong> scheduling (factor 0.5, patience 5) — checkpointing on best validation loss across 60 epochs.</li>
+      <li>Implemented a <strong>batched inference API</strong> (<code>load_and_predict</code>) with automatic GPU/CPU device detection, non-blocking memory transfers for CUDA overlap, and configurable batch sizes — enabling the model to be deployed as a standalone, reusable prediction module.</li>
+      <li>The model achieves <strong>90.96% accuracy on the held-out test set</strong> — a set the model never saw during training or validation — confirming genuine generalization rather than overfitting to the training distribution.</li>
+    </ul>
+
+    <!-- Dataset info box -->
+    <div style="margin: 20px 0; padding: 16px 20px; background: var(--bg); border-radius: var(--radius); border: 1px solid var(--border);">
+      <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 10px;">Dataset &amp; Training Details</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; font-size: 0.85rem;">
+        <div><span style="color: var(--text-muted);">Domain:</span> <strong>EEG Neuroscience / BCI</strong></div>
+        <div><span style="color: var(--text-muted);">Input size:</span> <strong>128 × 128 px</strong></div>
+        <div><span style="color: var(--text-muted);">Normalisation:</span> <strong>ImageNet mean/std</strong></div>
+        <div><span style="color: var(--text-muted);">Classes:</span> <strong>bad (0) · good (1)</strong></div>
+        <div><span style="color: var(--text-muted);">Class split:</span> <strong>678 bad / 500 good</strong></div>
+        <div><span style="color: var(--text-muted);">Exposure duration:</span> <strong>6 s design stimulus</strong></div>
+      </div>
+    </div>
+
+    <!-- Tech Stack -->
+    <div class="tags-row">
+      <span class="tag">Python</span>
+      <span class="tag">PyTorch</span>
+      <span class="tag">Torchvision</span>
+      <span class="tag">Scikit-learn</span>
+      <span class="tag">NumPy</span>
+      <span class="tag">Pillow</span>
+      <span class="tag">Custom CNN</span>
+      <span class="tag">BCELoss</span>
+      <span class="tag">CUDA</span>
+      <span class="tag">EEG / BCI</span>
+    </div>
+  </div>
+
+  <div class="project-card-footer">
+    <a href="https://github.com/emaadkalantarii/Brain-response-classifier"
+       target="_blank" rel="noopener" class="btn btn-primary">
+      <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      View on GitHub
+    </a>
+  </div>
+</article>
+
+<!-- ── Project 4: Signature Origin Classification ──────── -->
+<article class="project-card fade-in">
+  <div class="project-card-header">
+    <div>
+      <span class="project-card-num">PROJECT 04</span>
+      <h2 class="project-card-title">Signature Origin Classification<br>Human vs. Generative AI</h2>
+    </div>
+    <div style="flex-shrink:0;">
+      <span class="tag tag-green">Sequence Classification</span>
+    </div>
+  </div>
+
+  <div class="project-card-body">
+    <p class="project-card-desc">
+      An end-to-end deep learning pipeline for <strong>4-class sequence classification</strong>,
+      distinguishing genuine human handwritten signatures from those synthesized by three generative
+      architectures — <strong>GAN</strong>, <strong>SDT</strong>, and <strong>VAE</strong>. The
+      project addresses the growing challenge of AI-generated biometric content attribution, processing
+      raw 2D pen-stroke coordinate sequences from CSV files through a full training and inference
+      pipeline built entirely in PyTorch, achieving <strong>80.21% test accuracy</strong> and
+      <strong>85.70%</strong> accuracy on the full dataset.
+    </p>
+
+    <!-- Metrics -->
+    <div class="project-metrics">
+      <div class="metric-item">
+        <div class="metric-value">80.21%</div>
+        <div class="metric-label">Test Accuracy</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-value">85.70%</div>
+        <div class="metric-label">Full Dataset Accuracy</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-value">4</div>
+        <div class="metric-label">Classes</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-value">60</div>
+        <div class="metric-label">Training Epochs</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-value">BiGRU</div>
+        <div class="metric-label">Architecture</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-value">150</div>
+        <div class="metric-label">Sequence Length</div>
+      </div>
+    </div>
+
+    <!-- Classes -->
+    <div style="margin: 24px 0 8px;">
+      <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 14px;">Classification Target</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px;">
+        <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 10px 14px; font-size: 0.85rem;">
+          <span style="font-weight: 600;">Label 0</span> <span style="color: var(--text-muted);">— Human</span><br>
+          <span style="font-size: 0.78rem; color: var(--text-muted);">Genuine handwritten signature</span>
         </div>
-        <div style="flex-shrink:0;">
-          <span class="tag tag-green">Computer Vision</span>
+        <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 10px 14px; font-size: 0.85rem;">
+          <span style="font-weight: 600;">Label 1</span> <span style="color: var(--text-muted);">— GAN</span><br>
+          <span style="font-size: 0.78rem; color: var(--text-muted);">Generative Adversarial Network</span>
+        </div>
+        <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 10px 14px; font-size: 0.85rem;">
+          <span style="font-weight: 600;">Label 2</span> <span style="color: var(--text-muted);">— SDT</span><br>
+          <span style="font-size: 0.78rem; color: var(--text-muted);">Sigma-Delta Transform model</span>
+        </div>
+        <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 10px 14px; font-size: 0.85rem;">
+          <span style="font-weight: 600;">Label 3</span> <span style="color: var(--text-muted);">— VAE</span><br>
+          <span style="font-size: 0.78rem; color: var(--text-muted);">Variational Autoencoder</span>
         </div>
       </div>
+    </div>
 
-      <div class="project-card-body">
-        <p class="project-card-desc">
-          A fine-grained image classification system capable of identifying <strong>120 dog breeds</strong>
-          from the Stanford Dogs Dataset (20,580 images). The project explores the full deep learning
-          lifecycle — from data preprocessing and augmentation design through distributed GPU training
-          to final evaluation — demonstrating strong generalization with a top-1 test accuracy of 84.20%.
-        </p>
-
-        <!-- Metrics -->
-        <div class="project-metrics">
-          <div class="metric-item">
-            <div class="metric-value">84.20%</div>
-            <div class="metric-label">Top-1 Accuracy</div>
-          </div>
-          <div class="metric-item">
-            <div class="metric-value">96.54%</div>
-            <div class="metric-label">Top-3 Accuracy</div>
-          </div>
-          <div class="metric-item">
-            <div class="metric-value">98.05%</div>
-            <div class="metric-label">Top-5 Accuracy</div>
-          </div>
-          <div class="metric-item">
-            <div class="metric-value">0.67%</div>
-            <div class="metric-label">Generalization Gap</div>
-          </div>
-          <div class="metric-item">
-            <div class="metric-value">120</div>
-            <div class="metric-label">Breed Classes</div>
-          </div>
-          <div class="metric-item">
-            <div class="metric-value">20,580</div>
-            <div class="metric-label">Training Images</div>
-          </div>
-        </div>
-
-        <!-- Highlights -->
-        <ul class="project-bullets">
-          <li>Applied transfer learning with a pretrained <strong>ResNet50 (ImageNet)</strong> backbone, replacing the final classification head for 120-class output on fine-grained dog breed recognition.</li>
-          <li>Built a robust preprocessing pipeline using <strong>bounding-box-guided cropping</strong> and 224×224 resizing, yielding ~7% accuracy gain over uncropped baselines.</li>
-          <li>Implemented aggressive on-the-fly data augmentation via <strong>Albumentations</strong> (random crops, flips, rotations, colour jitter, Gaussian noise/blur, random erasing) to combat overfitting.</li>
-          <li>Trained over <strong>50 epochs</strong> on a 2-GPU distributed setup (2× Tesla V100, <strong>University of Luxembourg HPC</strong>) using PyTorch DDP, AdamW optimiser with CosineAnnealingLR scheduling, and gradient clipping.</li>
-          <li>Achieved a generalization gap of only <strong>0.67%</strong> between validation and test accuracy, demonstrating strong model robustness and minimal overfitting.</li>
-        </ul>
-
-        <!-- Tech Stack -->
-        <div class="tags-row">
-          <span class="tag">Python</span>
-          <span class="tag">PyTorch</span>
-          <span class="tag">Torchvision</span>
-          <span class="tag">Albumentations</span>
-          <span class="tag">CUDA</span>
-          <span class="tag">PyTorch DDP</span>
-          <span class="tag">ResNet50</span>
-          <span class="tag">Scikit-learn</span>
-          <span class="tag">NumPy</span>
-          <span class="tag">Pandas</span>
-          <span class="tag">Matplotlib</span>
-          <span class="tag">Seaborn</span>
-          <span class="tag">HPC / Tesla V100</span>
-        </div>
+    <!-- Architecture -->
+    <div style="margin: 24px 0 8px;">
+      <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 14px;">Model Architecture</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
+        <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">Input <span style="color: var(--text-muted); font-weight: 400;">(X, Y) sequence · 150 steps</span></div>
+        <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+        <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">BiGRU <span style="color: var(--text-muted); font-weight: 400;">2 layers · 128 units/dir</span></div>
+        <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+        <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">Concat <span style="color: var(--text-muted); font-weight: 400;">forward + backward · 256-dim</span></div>
+        <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+        <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">Dropout <span style="color: var(--text-muted); font-weight: 400;">p = 0.25</span></div>
+        <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+        <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">Linear <span style="color: var(--text-muted); font-weight: 400;">256 → 4 classes</span></div>
       </div>
+    </div>
 
-      <div class="project-card-footer">
-        <a href="https://github.com/emaadkalantarii/Dog-Breed-Classification-Deep-Learning"
-           target="_blank" rel="noopener" class="btn btn-primary">
-          <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-          View on GitHub
-        </a>
+    <!-- Highlights -->
+    <ul class="project-bullets">
+      <li>Designed a <strong>Bidirectional GRU</strong> classifier (2-layer, 128 units/direction) that captures both forward and backward temporal dependencies in pen-stroke sequences — chosen over unidirectional RNNs to exploit the full context of each signature trajectory.</li>
+      <li>Engineered a preprocessing pipeline with <strong>per-signature independent Min-Max normalization</strong> on X and Y axes, zero-padding/truncation to a fixed 150-timestep window, and graceful handling of degenerate single-point sequences.</li>
+      <li>Conducted a systematic <strong>sequence-length hyperparameter search</strong> across four values (150, 200, 400, 570 timesteps), selecting 150 as the optimal trade-off — achieving the lowest validation loss (0.3348) with the most efficient training time.</li>
+      <li>Trained with <strong>Adam optimizer</strong>, <strong>ReduceLROnPlateau</strong> scheduling (factor 0.5, patience 7 — automatically halving the learning rate at epoch 52), <strong>gradient clipping</strong> (threshold 1.0), and <strong>early stopping</strong> (patience 15) across 60 epochs, with best checkpoint saved at epoch 57.</li>
+      <li>Implemented a <strong>batched inference API</strong> (<code>load_and_predict</code>) with automatic CUDA/CPU device detection, recursive CSV discovery, and configurable batch sizes — enabling the model to be used as a standalone, reusable prediction module.</li>
+      <li>Applied a <strong>stratified 70/15/15 train/validation/test split</strong> to ensure representative class distribution across all partitions, with the test set kept fully held-out throughout training and hyperparameter tuning.</li>
+    </ul>
+
+    <!-- Training details box -->
+    <div style="margin: 20px 0; padding: 16px 20px; background: var(--bg); border-radius: var(--radius); border: 1px solid var(--border);">
+      <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 10px;">Training Configuration &amp; Results</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; font-size: 0.85rem;">
+        <div><span style="color: var(--text-muted);">Optimizer:</span> <strong>Adam (lr = 0.001)</strong></div>
+        <div><span style="color: var(--text-muted);">Weight decay:</span> <strong>1e-4 (L2)</strong></div>
+        <div><span style="color: var(--text-muted);">Scheduler:</span> <strong>ReduceLROnPlateau</strong></div>
+        <div><span style="color: var(--text-muted);">Gradient clip:</span> <strong>1.0</strong></div>
+        <div><span style="color: var(--text-muted);">Best val loss:</span> <strong>0.3291 (Epoch 57)</strong></div>
+        <div><span style="color: var(--text-muted);">Best val accuracy:</span> <strong>82.24%</strong></div>
+        <div><span style="color: var(--text-muted);">Data split:</span> <strong>70 / 15 / 15</strong></div>
+        <div><span style="color: var(--text-muted);">Loss function:</span> <strong>CrossEntropyLoss</strong></div>
       </div>
-    </article>
+    </div>
 
-    <!-- ── Project 2: Spacecraft Detection ──────────────── -->
-    <article class="project-card fade-in">
-      <div class="project-card-header">
-        <div>
-          <span class="project-card-num">PROJECT 02</span>
-          <h2 class="project-card-title">Spacecraft &amp; Space Debris Detection<br>via YOLOv11 Fine-Tuning</h2>
-        </div>
-        <div style="flex-shrink:0;">
-          <span class="tag tag-green">Object Detection</span>
-        </div>
+    <!-- Sequence length tuning table -->
+    <div style="margin: 20px 0; padding: 16px 20px; background: var(--bg); border-radius: var(--radius); border: 1px solid var(--border);">
+      <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 10px;">Sequence Length Hyperparameter Search</p>
+      <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem;">
+          <thead>
+            <tr style="border-bottom: 2px solid var(--border);">
+              <th style="text-align: left; padding: 8px 12px; color: var(--text-muted); font-weight: 600;">MAX_SEQ_LENGTH</th>
+              <th style="text-align: center; padding: 8px 12px; color: var(--text-muted); font-weight: 600;">Val Loss</th>
+              <th style="text-align: center; padding: 8px 12px; color: var(--text-muted); font-weight: 600;">Val Accuracy</th>
+              <th style="text-align: center; padding: 8px 12px; color: var(--text-muted); font-weight: 600;">Note</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid var(--border); background: rgba(59,130,246,0.04);">
+              <td style="padding: 10px 12px; font-weight: 600;">150 <span style="font-size:0.75rem; color:var(--text-muted); font-weight:400;">· selected</span></td>
+              <td style="text-align: center; padding: 10px 12px; font-weight: 700; color: var(--accent);">0.3348</td>
+              <td style="text-align: center; padding: 10px 12px; font-weight: 700; color: var(--accent);">80.21%</td>
+              <td style="text-align: center; padding: 10px 12px; font-size: 0.8rem; color: var(--text-muted);">Best loss · most efficient</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border);">
+              <td style="padding: 10px 12px;">200</td>
+              <td style="text-align: center; padding: 10px 12px;">0.4132</td>
+              <td style="text-align: center; padding: 10px 12px;">78.74%</td>
+              <td style="text-align: center; padding: 10px 12px; font-size: 0.8rem; color: var(--text-muted);">Worse loss &amp; accuracy</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border);">
+              <td style="padding: 10px 12px;">400</td>
+              <td style="text-align: center; padding: 10px 12px;">0.3812</td>
+              <td style="text-align: center; padding: 10px 12px;">80.00%</td>
+              <td style="text-align: center; padding: 10px 12px; font-size: 0.8rem; color: var(--text-muted);">Comparable accuracy</td>
+            </tr>
+            <tr>
+              <td style="padding: 10px 12px;">570</td>
+              <td style="text-align: center; padding: 10px 12px;">0.3520</td>
+              <td style="text-align: center; padding: 10px 12px;">81.89%</td>
+              <td style="text-align: center; padding: 10px 12px; font-size: 0.8rem; color: var(--text-muted);">Marginal gain, high cost</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
+    </div>
 
-      <div class="project-card-body">
-        <p class="project-card-desc">
-          An object detection system to identify and localize <strong>10 real ESA spacecraft</strong>
-          (including SOHO, XMM-Newton, and LISA Pathfinder) alongside space debris in 1024×1024
-          satellite imagery, built on the <strong>SPARK 2022 Challenge dataset</strong>
-          (University of Luxembourg SnT). The project fine-tunes a YOLOv11-Medium model with a
-          targeted augmentation pipeline simulating real-world orbital imaging conditions.
-        </p>
+    <!-- Tech Stack -->
+    <div class="tags-row">
+      <span class="tag">Python</span>
+      <span class="tag">PyTorch</span>
+      <span class="tag">Bidirectional GRU</span>
+      <span class="tag">Sequence Classification</span>
+      <span class="tag">Scikit-learn</span>
+      <span class="tag">NumPy</span>
+      <span class="tag">Pandas</span>
+      <span class="tag">CUDA</span>
+      <span class="tag">Biometric Authentication</span>
+      <span class="tag">Time-Series</span>
+    </div>
+  </div>
 
-        <!-- Metrics -->
-        <div class="project-metrics">
-          <div class="metric-item">
-            <div class="metric-value">~86%</div>
-            <div class="metric-label">Classification Accuracy</div>
-          </div>
-          <div class="metric-item">
-            <div class="metric-value">10</div>
-            <div class="metric-label">ESA Spacecraft Classes</div>
-          </div>
-          <div class="metric-item">
-            <div class="metric-value">1024px</div>
-            <div class="metric-label">Image Resolution</div>
-          </div>
-          <div class="metric-item">
-            <div class="metric-value">YOLOv11-M</div>
-            <div class="metric-label">Base Architecture</div>
-          </div>
-        </div>
+  <div class="project-card-footer">
+    <a href="https://github.com/emaadkalantarii/Signature-origin-classifier"
+       target="_blank" rel="noopener" class="btn btn-primary">
+      <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      View on GitHub
+    </a>
+  </div>
+</article>
 
-        <!-- Highlights -->
-        <ul class="project-bullets">
-          <li>Fine-tuned a <strong>YOLOv11-Medium</strong> model on a custom annotated dataset for multi-class detection of ESA spacecraft (SOHO, XMM-Newton, LISA Pathfinder, and others) and space debris.</li>
-          <li>Converted bounding-box annotations from <strong>CSV format to normalized YOLO labels</strong>, handling all preprocessing and annotation pipeline engineering end-to-end.</li>
-          <li>Designed a targeted <strong>data augmentation pipeline</strong> using Albumentations (Gaussian blur, motion blur, brightness/contrast shifts, horizontal/vertical flips, additive Gaussian noise) to simulate sensor noise, orbital lighting, and motion artifacts.</li>
-          <li>Configured training with an initial learning rate of 0.01, <strong>L2 weight decay regularization</strong>, and 35 epochs with early stopping to prevent overfitting on the multi-class detection task.</li>
-          <li>Deployed training on the <strong>University of Luxembourg HPC Iris cluster</strong> via SLURM job scheduling; built a full inference pipeline generating class labels and bounding-box coordinates on unseen test imagery.</li>
-        </ul>
+<!-- ── Project 5: LLM Historical Network Extraction ───── -->
+<article class="project-card fade-in">
+  <div class="project-card-header">
+    <div>
+      <span class="project-card-num">PROJECT 05</span>
+      <h2 class="project-card-title">Network Data Extraction using LLMs<br>for Historical Documents</h2>
+    </div>
+    <div style="flex-shrink:0;">
+      <span class="tag tag-green">NLP</span>
+    </div>
+  </div>
 
-        <!-- Spacecraft List -->
-        <div style="margin: 20px 0; padding: 16px 20px; background: var(--bg); border-radius: var(--radius); border: 1px solid var(--border);">
-          <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 10px;">Detected Spacecraft Classes</p>
-          <div class="tags-row" style="margin-top: 0;">
-            <span class="tag tag-gray">SOHO</span>
-            <span class="tag tag-gray">XMM-Newton</span>
-            <span class="tag tag-gray">LISA Pathfinder</span>
-            <span class="tag tag-gray">+ 7 other ESA spacecraft</span>
-            <span class="tag tag-gray">Space Debris</span>
-          </div>
-        </div>
+  <div class="project-card-body">
+    <p class="project-card-desc">
+      An end-to-end NLP pipeline for extracting structured social network data — entities and their
+      relationships — from long-form WWII-era historical memoirs using Large Language Models.
+      The project bridges <strong>Digital History</strong> and <strong>Computer Science</strong>,
+      reconstructing survival networks of people who provided shelter, food, false documents, and
+      protection to those living underground during the Nazi persecution. Conducted over ~20 months
+      at the <strong>Luxembourg Centre for Contemporary and Digital History (C²DH)</strong>,
+      University of Luxembourg, and formed the basis of a Master's thesis in Computer Science.
+      Findings are currently being prepared for <strong>publication in a peer-reviewed journal</strong>.
+    </p>
 
-        <!-- Tech Stack -->
-        <div class="tags-row">
-          <span class="tag">Python</span>
-          <span class="tag">YOLOv11</span>
-          <span class="tag">Ultralytics</span>
-          <span class="tag">Albumentations</span>
-          <span class="tag">SLURM</span>
-          <span class="tag">HPC / GPU Cluster</span>
-          <span class="tag">NumPy</span>
-          <span class="tag">OpenCV</span>
-        </div>
+    <!-- Metrics -->
+    <div class="project-metrics">
+      <div class="metric-item">
+        <div class="metric-value">0.841</div>
+        <div class="metric-label">Best F1-Score</div>
       </div>
-
-      <div class="project-card-footer">
-        <a href="https://github.com/emaadkalantarii/Satellite-Object-Detection-using-YOLOv11"
-           target="_blank" rel="noopener" class="btn btn-primary">
-          <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-          View on GitHub
-        </a>
+      <div class="metric-item">
+        <div class="metric-value">0.906</div>
+        <div class="metric-label">Precision</div>
       </div>
-    </article>
-
-    <!-- ── Project 3: EEG Topomap Classifier ───────────────── -->
-    <article class="project-card fade-in">
-      <div class="project-card-header">
-        <div>
-          <span class="project-card-num">PROJECT 03</span>
-          <h2 class="project-card-title">EEG Topomap Binary Classification<br>via Deep Learning</h2>
-        </div>
-        <div style="flex-shrink:0;">
-          <span class="tag tag-green">Computer Vision</span>
-        </div>
+      <div class="metric-item">
+        <div class="metric-value">0.785</div>
+        <div class="metric-label">Recall</div>
       </div>
-
-      <div class="project-card-body">
-        <p class="project-card-desc">
-          A binary image classification system that predicts whether a brain's neurological response
-          to a visual design stimulus is <strong>positive or negative</strong>, using EEG topographic
-          map (topomap) images as input. The project applies computer vision to a neuroscience domain —
-          replacing manual expert interpretation of EEG patterns with an end-to-end deep learning
-          pipeline. Built entirely from scratch in PyTorch on a small, class-imbalanced dataset
-          of <strong>1,178 images</strong>, achieving <strong>90.96% accuracy</strong> on a
-          fully held-out test set.
-        </p>
-
-        <!-- Metrics -->
-        <div class="project-metrics">
-          <div class="metric-item">
-            <div class="metric-value">90.96%</div>
-            <div class="metric-label">Test Accuracy</div>
-          </div>
-          <div class="metric-item">
-            <div class="metric-value">97.18%</div>
-            <div class="metric-label">Best Val Accuracy</div>
-          </div>
-          <div class="metric-item">
-            <div class="metric-value">1,178</div>
-            <div class="metric-label">Total Images</div>
-          </div>
-          <div class="metric-item">
-            <div class="metric-value">60</div>
-            <div class="metric-label">Training Epochs</div>
-          </div>
-          <div class="metric-item">
-            <div class="metric-value">2</div>
-            <div class="metric-label">Classes</div>
-          </div>
-          <div class="metric-item">
-            <div class="metric-value">Custom CNN</div>
-            <div class="metric-label">Architecture</div>
-          </div>
-        </div>
-
-        <!-- Architecture diagram -->
-        <div style="margin: 24px 0 8px;">
-          <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 14px;">Model Architecture</p>
-          <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
-            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">Input <span style="color: var(--text-muted); font-weight: 400;">3×128×128</span></div>
-            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
-            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">Conv Block 1 <span style="color: var(--text-muted); font-weight: 400;">16→32</span></div>
-            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
-            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">Conv Block 2 <span style="color: var(--text-muted); font-weight: 400;">64→128</span></div>
-            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
-            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">Conv Block 3 <span style="color: var(--text-muted); font-weight: 400;">256</span></div>
-            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
-            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">Conv Block 4 <span style="color: var(--text-muted); font-weight: 400;">512</span></div>
-            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
-            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">AdaptiveAvgPool</div>
-            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
-            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">FC Head <span style="color: var(--text-muted); font-weight: 400;">8192→1024→1024→1</span></div>
-            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
-            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">Sigmoid <span style="color: var(--text-muted); font-weight: 400;">→ {0, 1}</span></div>
-          </div>
-        </div>
-
-        <!-- Highlights -->
-        <ul class="project-bullets">
-          <li>Designed a custom CNN from scratch — no pretrained backbone — with four progressively deepening convolutional blocks (16→32→64→128→256→512 filters), <strong>AdaptiveAvgPool2d</strong> for input-size robustness, and dual <strong>Dropout (p=0.5)</strong> on the fully connected head, achieving strong regularization on a small dataset.</li>
-          <li>Applied <strong>stratified 70/15/15 train/val/test splits</strong> to preserve class balance across a naturally imbalanced dataset (678 bad / 500 good), ensuring evaluation integrity throughout training and final reporting.</li>
-          <li>Built a full training pipeline with on-the-fly data augmentation (random horizontal flips, ±10° rotations, brightness/contrast color jitter), <strong>BCELoss</strong>, <strong>Adam optimizer</strong> (lr = 0.001), and <strong>ReduceLROnPlateau</strong> scheduling (factor 0.5, patience 5) — checkpointing on best validation loss across 60 epochs.</li>
-          <li>Implemented a <strong>batched inference API</strong> (<code>load_and_predict</code>) with automatic GPU/CPU device detection, non-blocking memory transfers for CUDA overlap, and configurable batch sizes — enabling the model to be deployed as a standalone, reusable prediction module.</li>
-          <li>The model achieves <strong>90.96% accuracy on the held-out test set</strong> — a set the model never saw during training or validation — confirming genuine generalization rather than overfitting to the training distribution.</li>
-        </ul>
-
-        <!-- Dataset info box -->
-        <div style="margin: 20px 0; padding: 16px 20px; background: var(--bg); border-radius: var(--radius); border: 1px solid var(--border);">
-          <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 10px;">Dataset &amp; Training Details</p>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; font-size: 0.85rem;">
-            <div><span style="color: var(--text-muted);">Domain:</span> <strong>EEG Neuroscience / BCI</strong></div>
-            <div><span style="color: var(--text-muted);">Input size:</span> <strong>128 × 128 px</strong></div>
-            <div><span style="color: var(--text-muted);">Normalisation:</span> <strong>ImageNet mean/std</strong></div>
-            <div><span style="color: var(--text-muted);">Classes:</span> <strong>bad (0) · good (1)</strong></div>
-            <div><span style="color: var(--text-muted);">Class split:</span> <strong>678 bad / 500 good</strong></div>
-            <div><span style="color: var(--text-muted);">Exposure duration:</span> <strong>6 s design stimulus</strong></div>
-          </div>
-        </div>
-
-        <!-- Tech Stack -->
-        <div class="tags-row">
-          <span class="tag">Python</span>
-          <span class="tag">PyTorch</span>
-          <span class="tag">Torchvision</span>
-          <span class="tag">Scikit-learn</span>
-          <span class="tag">NumPy</span>
-          <span class="tag">Pillow</span>
-          <span class="tag">Custom CNN</span>
-          <span class="tag">BCELoss</span>
-          <span class="tag">CUDA</span>
-          <span class="tag">EEG / BCI</span>
-        </div>
+      <div class="metric-item">
+        <div class="metric-value">+250%</div>
+        <div class="metric-label">F1 vs. Baseline</div>
       </div>
-
-      <div class="project-card-footer">
-        <a href="https://github.com/emaadkalantarii/Brain-response-classifier"
-           target="_blank" rel="noopener" class="btn btn-primary">
-          <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-          View on GitHub
-        </a>
+      <div class="metric-item">
+        <div class="metric-value">43</div>
+        <div class="metric-label">Methods Tested</div>
       </div>
-    </article>
-
-    <!-- ── Project 4: LLM Historical Network Extraction ───── -->
-    <article class="project-card fade-in">
-      <div class="project-card-header">
-        <div>
-          <span class="project-card-num">PROJECT 04</span>
-          <h2 class="project-card-title">Network Data Extraction using LLMs<br>for Historical Documents</h2>
-        </div>
-        <div style="flex-shrink:0;">
-          <span class="tag tag-green">NLP</span>
-        </div>
+      <div class="metric-item">
+        <div class="metric-value">176</div>
+        <div class="metric-label">Ground-Truth Relations</div>
       </div>
+    </div>
 
-      <div class="project-card-body">
-        <p class="project-card-desc">
-          An end-to-end NLP pipeline for extracting structured social network data — entities and their
-          relationships — from long-form WWII-era historical memoirs using Large Language Models.
-          The project bridges <strong>Digital History</strong> and <strong>Computer Science</strong>,
-          reconstructing survival networks of people who provided shelter, food, false documents, and
-          protection to those living underground during the Nazi persecution. Conducted over ~20 months
-          at the <strong>Luxembourg Centre for Contemporary and Digital History (C²DH)</strong>,
-          University of Luxembourg, and formed the basis of a Master's thesis in Computer Science.
-          Findings are currently being prepared for <strong>publication in a peer-reviewed journal</strong>.
-        </p>
-
-        <!-- Metrics -->
-        <div class="project-metrics">
-          <div class="metric-item">
-            <div class="metric-value">0.841</div>
-            <div class="metric-label">Best F1-Score</div>
-          </div>
-          <div class="metric-item">
-            <div class="metric-value">0.906</div>
-            <div class="metric-label">Precision</div>
-          </div>
-          <div class="metric-item">
-            <div class="metric-value">0.785</div>
-            <div class="metric-label">Recall</div>
-          </div>
-          <div class="metric-item">
-            <div class="metric-value">+250%</div>
-            <div class="metric-label">F1 vs. Baseline</div>
-          </div>
-          <div class="metric-item">
-            <div class="metric-value">43</div>
-            <div class="metric-label">Methods Tested</div>
-          </div>
-          <div class="metric-item">
-            <div class="metric-value">176</div>
-            <div class="metric-label">Ground-Truth Relations</div>
-          </div>
-        </div>
-
-        <!-- Pipeline section -->
-        <div style="margin: 24px 0 8px;">
-          <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 14px;">Pipeline Architecture</p>
-          <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
-            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">① Text Cleaning</div>
-            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
-            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">② Chunking <span style="color: var(--text-muted); font-weight: 400;">(LangChain)</span></div>
-            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
-            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">③ Coreference Resolution <span style="color: var(--text-muted); font-weight: 400;">(LLM)</span></div>
-            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
-            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">④ Relationship Extraction <span style="color: var(--text-muted); font-weight: 400;">(LLM)</span></div>
-            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
-            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">⑤ JSON Output</div>
-          </div>
-        </div>
-
-        <!-- Highlights -->
-        <ul class="project-bullets">
-          <li>Designed and implemented a <strong>modular NLP pipeline</strong> integrating text cleaning, overlapping chunking (LangChain RecursiveCharacterTextSplitter), LLM-based coreference resolution, and structured JSON extraction via OpenAI APIs (GPT-4o, GPT-4.1, GPT-5, o3).</li>
-          <li>Introduced a dedicated <strong>Coreference Resolution (CR) stage</strong> that resolves ambiguous pronouns ("he", "they") and collective family references ("the Wendlands") into explicit named individuals before extraction — independently increasing attribution accuracy by ~20% and reducing both false positives and false negatives.</li>
-          <li>Implemented a <strong>context window mechanism</strong> in the CR stage, providing the model with one preceding chunk as reference to resolve cross-boundary references — a CW of 1 improved recall by ~12–15% with no loss in precision; larger windows introduced noise and degraded results.</li>
-          <li>Benchmarked <strong>43 experimental configurations</strong> across 8 systematic phases, varying chunking parameters (2000–10000 chars), context window sizes, extraction strategies (one-step vs. multi-step NER+RE), prompt designs, and model selection; outputs manually reviewed and labeled (TP/FP/FN) against a curated ground-truth dataset of 176 annotated relationships.</li>
-          <li>Evolved <strong>prompt engineering</strong> from simple to advanced through three iterative stages: simple baseline prompts → refined prompts with 9 explicit relationship type definitions and inclusion/exclusion rules → advanced prompts with borderline case clarifications, reducing false positives by over 80% while maintaining recall.</li>
-          <li>Both the CR and extraction stages use a <strong>two-prompt design</strong> per chunk: a <strong>system prompt</strong> carrying permanent rules, relationship definitions, and structural instructions; and a <strong>user prompt</strong> constructed dynamically per chunk, providing the main text to process and — in the CR stage — the preceding chunk(s) as reference context for resolving cross-boundary references.</li>
-          <li>Validated reproducibility via <strong>10-run stability testing</strong> of the three top configurations; the o3-based pipeline achieved mean F1 = 0.819 ± 0.01, confirming consistent and reliable performance across repeated runs.</li>
-          <li>Identified <strong>OpenAI o3</strong> as the optimal model for both CR and extraction, outperforming GPT-4.1 (+0.04 F1) and GPT-5 (+0.07 F1) — demonstrating that reasoning depth matters more than model scale for context-heavy historical texts.</li>
-        </ul>
-
-        <!-- Relationship types -->
-        <div style="margin: 20px 0; padding: 16px 20px; background: var(--bg); border-radius: var(--radius); border: 1px solid var(--border);">
-          <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 10px;">9 Extracted Relationship Categories</p>
-          <div class="tags-row" style="margin-top: 0;">
-            <span class="tag tag-gray">Shelter &amp; Protection</span>
-            <span class="tag tag-gray">Medical Care</span>
-            <span class="tag tag-gray">Food &amp; Resources</span>
-            <span class="tag tag-gray">Introductions &amp; Connections</span>
-            <span class="tag tag-gray">Employment</span>
-            <span class="tag tag-gray">False Documentation</span>
-            <span class="tag tag-gray">Information &amp; Advice</span>
-            <span class="tag tag-gray">Emotional Support</span>
-            <span class="tag tag-gray">Other Assistance</span>
-          </div>
-        </div>
-
-        <!-- Model comparison -->
-        <div style="margin: 20px 0; padding: 16px 20px; background: var(--bg); border-radius: var(--radius); border: 1px solid var(--border);">
-          <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 10px;">Top Configuration Results (10-Run Average)</p>
-          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 14px;">The framework supports independent model selection for each stage — one model for Coreference Resolution and a separate model for Relationship Extraction — enabling direct like-for-like comparison under identical preprocessing and prompt conditions.</p>
-          <div style="overflow-x: auto;">
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem;">
-              <thead>
-                <tr style="border-bottom: 2px solid var(--border);">
-                  <th style="text-align: left; padding: 8px 12px; color: var(--text-muted); font-weight: 600;">CR Model → Extraction Model</th>
-                  <th style="text-align: center; padding: 8px 12px; color: var(--text-muted); font-weight: 600;">Precision</th>
-                  <th style="text-align: center; padding: 8px 12px; color: var(--text-muted); font-weight: 600;">Recall</th>
-                  <th style="text-align: center; padding: 8px 12px; color: var(--text-muted); font-weight: 600;">F1-Score</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr style="border-bottom: 1px solid var(--border); background: rgba(59,130,246,0.04);">
-                  <td style="padding: 10px 12px; font-weight: 600;">o3 <span style="font-size:0.8rem; color:var(--text-muted); font-weight:400;">(CR)</span> → o3 <span style="font-size:0.8rem; color:var(--text-muted); font-weight:400;">(Extraction)</span> <span style="font-size:0.75rem; color: var(--text-muted); font-weight:400;">· best overall</span></td>
-                  <td style="text-align: center; padding: 10px 12px; font-weight: 600; color: var(--accent);">0.845</td>
-                  <td style="text-align: center; padding: 10px 12px; font-weight: 600; color: var(--accent);">0.795</td>
-                  <td style="text-align: center; padding: 10px 12px; font-weight: 700; color: var(--accent);">0.819</td>
-                </tr>
-                <tr style="border-bottom: 1px solid var(--border);">
-                  <td style="padding: 10px 12px;">o3 <span style="font-size:0.8rem; color:var(--text-muted);">(CR)</span> → GPT-4.1 <span style="font-size:0.8rem; color:var(--text-muted);">(Extraction)</span> <span style="font-size:0.75rem; color: var(--text-muted);">· highest recall</span></td>
-                  <td style="text-align: center; padding: 10px 12px;">0.764</td>
-                  <td style="text-align: center; padding: 10px 12px;">0.866</td>
-                  <td style="text-align: center; padding: 10px 12px;">0.812</td>
-                </tr>
-                <tr>
-                  <td style="padding: 10px 12px;">o3 <span style="font-size:0.8rem; color:var(--text-muted);">(CR)</span> → GPT-5 <span style="font-size:0.8rem; color:var(--text-muted);">(Extraction)</span></td>
-                  <td style="text-align: center; padding: 10px 12px;">0.772</td>
-                  <td style="text-align: center; padding: 10px 12px;">0.754</td>
-                  <td style="text-align: center; padding: 10px 12px;">0.763</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 10px;">All configurations: chunk 6000/600 · context window 1 · advanced prompts · one-step extraction</p>
-        </div>
-
-        <!-- Tech Stack -->
-        <div class="tags-row">
-          <span class="tag">Python</span>
-          <span class="tag">OpenAI API</span>
-          <span class="tag">LangChain</span>
-          <span class="tag">GPT-4o</span>
-          <span class="tag">GPT-4.1</span>
-          <span class="tag">GPT-5</span>
-          <span class="tag">o3 Reasoning Model</span>
-          <span class="tag">Coreference Resolution</span>
-          <span class="tag">NER</span>
-          <span class="tag">Information Extraction</span>
-          <span class="tag">Prompt Engineering</span>
-          <span class="tag">JSON</span>
-          <span class="tag">Digital Humanities</span>
-          <span class="tag">University of Luxembourg</span>
-        </div>
+    <!-- Pipeline section -->
+    <div style="margin: 24px 0 8px;">
+      <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 14px;">Pipeline Architecture</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
+        <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">① Text Cleaning</div>
+        <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+        <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">② Chunking <span style="color: var(--text-muted); font-weight: 400;">(LangChain)</span></div>
+        <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+        <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">③ Coreference Resolution <span style="color: var(--text-muted); font-weight: 400;">(LLM)</span></div>
+        <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+        <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">④ Relationship Extraction <span style="color: var(--text-muted); font-weight: 400;">(LLM)</span></div>
+        <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+        <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">⑤ JSON Output</div>
       </div>
+    </div>
 
-      <div class="project-card-footer">
-        <a href="https://github.com/emaadkalantarii/Network-Data-Extraction-using-LLMs.git"
-           target="_blank" rel="noopener" class="btn btn-primary">
-          <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-          View on GitHub
-        </a>
+    <!-- Highlights -->
+    <ul class="project-bullets">
+      <li>Designed and implemented a <strong>modular NLP pipeline</strong> integrating text cleaning, overlapping chunking (LangChain RecursiveCharacterTextSplitter), LLM-based coreference resolution, and structured JSON extraction via OpenAI APIs (GPT-4o, GPT-4.1, GPT-5, o3).</li>
+      <li>Introduced a dedicated <strong>Coreference Resolution (CR) stage</strong> that resolves ambiguous pronouns ("he", "they") and collective family references ("the Wendlands") into explicit named individuals before extraction — independently increasing attribution accuracy by ~20% and reducing both false positives and false negatives.</li>
+      <li>Implemented a <strong>context window mechanism</strong> in the CR stage, providing the model with one preceding chunk as reference to resolve cross-boundary references — a CW of 1 improved recall by ~12–15% with no loss in precision; larger windows introduced noise and degraded results.</li>
+      <li>Benchmarked <strong>43 experimental configurations</strong> across 8 systematic phases, varying chunking parameters (2000–10000 chars), context window sizes, extraction strategies (one-step vs. multi-step NER+RE), prompt designs, and model selection; outputs manually reviewed and labeled (TP/FP/FN) against a curated ground-truth dataset of 176 annotated relationships.</li>
+      <li>Evolved <strong>prompt engineering</strong> from simple to advanced through three iterative stages: simple baseline prompts → refined prompts with 9 explicit relationship type definitions and inclusion/exclusion rules → advanced prompts with borderline case clarifications, reducing false positives by over 80% while maintaining recall.</li>
+      <li>Both the CR and extraction stages use a <strong>two-prompt design</strong> per chunk: a <strong>system prompt</strong> carrying permanent rules, relationship definitions, and structural instructions; and a <strong>user prompt</strong> constructed dynamically per chunk, providing the main text to process and — in the CR stage — the preceding chunk(s) as reference context for resolving cross-boundary references.</li>
+      <li>Validated reproducibility via <strong>10-run stability testing</strong> of the three top configurations; the o3-based pipeline achieved mean F1 = 0.819 ± 0.01, confirming consistent and reliable performance across repeated runs.</li>
+      <li>Identified <strong>OpenAI o3</strong> as the optimal model for both CR and extraction, outperforming GPT-4.1 (+0.04 F1) and GPT-5 (+0.07 F1) — demonstrating that reasoning depth matters more than model scale for context-heavy historical texts.</li>
+    </ul>
+
+    <!-- Relationship types -->
+    <div style="margin: 20px 0; padding: 16px 20px; background: var(--bg); border-radius: var(--radius); border: 1px solid var(--border);">
+      <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 10px;">9 Extracted Relationship Categories</p>
+      <div class="tags-row" style="margin-top: 0;">
+        <span class="tag tag-gray">Shelter &amp; Protection</span>
+        <span class="tag tag-gray">Medical Care</span>
+        <span class="tag tag-gray">Food &amp; Resources</span>
+        <span class="tag tag-gray">Introductions &amp; Connections</span>
+        <span class="tag tag-gray">Employment</span>
+        <span class="tag tag-gray">False Documentation</span>
+        <span class="tag tag-gray">Information &amp; Advice</span>
+        <span class="tag tag-gray">Emotional Support</span>
+        <span class="tag tag-gray">Other Assistance</span>
       </div>
-    </article>
+    </div>
 
-    <!-- ── Project 4: Census Income Prediction ──────────── -->
-    <article class="project-card fade-in">
-      <div class="project-card-header">
-        <div>
-          <span class="project-card-num">PROJECT 05</span>
-          <h2 class="project-card-title">Census Income Prediction<br>using Machine Learning</h2>
-        </div>
-        <div style="flex-shrink:0;">
-          <span class="tag tag-green">Data Mining · ML</span>
-        </div>
+    <!-- Model comparison -->
+    <div style="margin: 20px 0; padding: 16px 20px; background: var(--bg); border-radius: var(--radius); border: 1px solid var(--border);">
+      <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 10px;">Top Configuration Results (10-Run Average)</p>
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 14px;">The framework supports independent model selection for each stage — one model for Coreference Resolution and a separate model for Relationship Extraction — enabling direct like-for-like comparison under identical preprocessing and prompt conditions.</p>
+      <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem;">
+          <thead>
+            <tr style="border-bottom: 2px solid var(--border);">
+              <th style="text-align: left; padding: 8px 12px; color: var(--text-muted); font-weight: 600;">CR Model → Extraction Model</th>
+              <th style="text-align: center; padding: 8px 12px; color: var(--text-muted); font-weight: 600;">Precision</th>
+              <th style="text-align: center; padding: 8px 12px; color: var(--text-muted); font-weight: 600;">Recall</th>
+              <th style="text-align: center; padding: 8px 12px; color: var(--text-muted); font-weight: 600;">F1-Score</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid var(--border); background: rgba(59,130,246,0.04);">
+              <td style="padding: 10px 12px; font-weight: 600;">o3 <span style="font-size:0.8rem; color:var(--text-muted); font-weight:400;">(CR)</span> → o3 <span style="font-size:0.8rem; color:var(--text-muted); font-weight:400;">(Extraction)</span> <span style="font-size:0.75rem; color: var(--text-muted); font-weight:400;">· best overall</span></td>
+              <td style="text-align: center; padding: 10px 12px; font-weight: 600; color: var(--accent);">0.845</td>
+              <td style="text-align: center; padding: 10px 12px; font-weight: 600; color: var(--accent);">0.795</td>
+              <td style="text-align: center; padding: 10px 12px; font-weight: 700; color: var(--accent);">0.819</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border);">
+              <td style="padding: 10px 12px;">o3 <span style="font-size:0.8rem; color:var(--text-muted);">(CR)</span> → GPT-4.1 <span style="font-size:0.8rem; color:var(--text-muted);">(Extraction)</span> <span style="font-size:0.75rem; color: var(--text-muted);">· highest recall</span></td>
+              <td style="text-align: center; padding: 10px 12px;">0.764</td>
+              <td style="text-align: center; padding: 10px 12px;">0.866</td>
+              <td style="text-align: center; padding: 10px 12px;">0.812</td>
+            </tr>
+            <tr>
+              <td style="padding: 10px 12px;">o3 <span style="font-size:0.8rem; color:var(--text-muted);">(CR)</span> → GPT-5 <span style="font-size:0.8rem; color:var(--text-muted);">(Extraction)</span></td>
+              <td style="text-align: center; padding: 10px 12px;">0.772</td>
+              <td style="text-align: center; padding: 10px 12px;">0.754</td>
+              <td style="text-align: center; padding: 10px 12px;">0.763</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
+      <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 10px;">All configurations: chunk 6000/600 · context window 1 · advanced prompts · one-step extraction</p>
+    </div>
 
-      <div class="project-card-body">
-        <p class="project-card-desc">
-          An end-to-end <strong>KDD (Knowledge Discovery in Databases)</strong> pipeline applied to the
-          UCI Adult Census dataset (47,621 instances, 14 features) to predict whether an individual's
-          annual income exceeds <strong>$50,000</strong>. The project covers the full data science lifecycle —
-          cleaning, exploratory analysis, feature engineering, hyperparameter tuning, and comparative
-          model evaluation — demonstrating that gradient-boosted trees outperform linear and ensemble
-          baselines on structured socioeconomic data.
-        </p>
+    <!-- Tech Stack -->
+    <div class="tags-row">
+      <span class="tag">Python</span>
+      <span class="tag">OpenAI API</span>
+      <span class="tag">LangChain</span>
+      <span class="tag">GPT-4o</span>
+      <span class="tag">GPT-4.1</span>
+      <span class="tag">GPT-5</span>
+      <span class="tag">o3 Reasoning Model</span>
+      <span class="tag">Coreference Resolution</span>
+      <span class="tag">NER</span>
+      <span class="tag">Information Extraction</span>
+      <span class="tag">Prompt Engineering</span>
+      <span class="tag">JSON</span>
+      <span class="tag">Digital Humanities</span>
+      <span class="tag">University of Luxembourg</span>
+    </div>
+  </div>
 
-        <!-- Metrics -->
-        <div class="project-metrics">
-          <div class="metric-item">
-            <div class="metric-value">86.95%</div>
-            <div class="metric-label">Best Accuracy (XGBoost)</div>
-          </div>
-          <div class="metric-item">
-            <div class="metric-value">0.814</div>
-            <div class="metric-label">F1 Score (macro)</div>
-          </div>
-          <div class="metric-item">
-            <div class="metric-value">+2.2pp</div>
-            <div class="metric-label">Gain over LR Baseline</div>
-          </div>
-          <div class="metric-item">
-            <div class="metric-value">3</div>
-            <div class="metric-label">Models Compared</div>
-          </div>
-          <div class="metric-item">
-            <div class="metric-value">47,621</div>
-            <div class="metric-label">Instances</div>
-          </div>
-          <div class="metric-item">
-            <div class="metric-value">14</div>
-            <div class="metric-label">Features</div>
-          </div>
-        </div>
+  <div class="project-card-footer">
+    <a href="https://github.com/emaadkalantarii/Network-Data-Extraction-using-LLMs.git"
+       target="_blank" rel="noopener" class="btn btn-primary">
+      <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      View on GitHub
+    </a>
+  </div>
+</article>
 
-        <!-- Pipeline Architecture -->
-        <div style="margin: 24px 0 8px;">
-          <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 14px;">KDD Pipeline</p>
-          <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
-            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">① Data Cleaning</div>
-            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
-            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">② EDA</div>
-            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
-            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">③ Preprocessing <span style="color: var(--text-muted); font-weight: 400;">(Scaling + Encoding)</span></div>
-            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
-            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">④ HP Tuning</div>
-            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
-            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">⑤ Model Evaluation</div>
-          </div>
-        </div>
+<!-- ── Project 6: Census Income Prediction ──────────── -->
+<article class="project-card fade-in">
+  <div class="project-card-header">
+    <div>
+      <span class="project-card-num">PROJECT 06</span>
+      <h2 class="project-card-title">Census Income Prediction<br>using Machine Learning</h2>
+    </div>
+    <div style="flex-shrink:0;">
+      <span class="tag tag-green">Data Mining · ML</span>
+    </div>
+  </div>
 
-        <!-- Highlights -->
-        <ul class="project-bullets">
-          <li>Applied the full <strong>KDD process</strong> to the UCI Adult Census dataset — normalising inconsistent target labels, dropping rows with missing values (~2.5%), and performing stratified 70/30 train-test splitting to preserve class balance.</li>
-          <li>Conducted <strong>Exploratory Data Analysis (EDA)</strong> including descriptive statistics, a gender-vs-income stacked bar chart, a numerical-feature correlation heatmap, and an age distribution histogram with KDE — revealing key demographic patterns in income inequality.</li>
-          <li>Built a preprocessing pipeline applying <strong>MinMaxScaler</strong> to 6 numerical features and <strong>one-hot encoding</strong> (via <code>pd.get_dummies</code>, <code>drop_first=True</code>) to 8 categorical features, followed by <strong>LabelEncoder</strong> on the binary target.</li>
-          <li>Performed systematic <strong>hyperparameter sensitivity analysis</strong> for all three models: swept regularisation <em>C</em> for Logistic Regression, <em>n_estimators</em> and <em>max_depth</em> for Random Forest, and <em>learning_rate</em> and <em>n_estimators</em> for XGBoost — selecting optimal values from accuracy-vs-parameter plots.</li>
-          <li>Evaluated all models on 7 metrics (Accuracy, MSE, RMSE, R², Precision, Recall, F1) with confusion matrices; <strong>XGBoost achieved the best results</strong> (86.95% accuracy, F1 = 0.814), outperforming Random Forest by 0.97 pp and Logistic Regression by 2.16 pp.</li>
-          <li>Delivered the project as a <strong>fully documented Jupyter Notebook</strong> with narrative markdown commentary alongside each code section, making the methodology transparent and reproducible — alongside a clean, modular Python script structured for production use.</li>
-        </ul>
+  <div class="project-card-body">
+    <p class="project-card-desc">
+      An end-to-end <strong>KDD (Knowledge Discovery in Databases)</strong> pipeline applied to the
+      UCI Adult Census dataset (47,621 instances, 14 features) to predict whether an individual's
+      annual income exceeds <strong>$50,000</strong>. The project covers the full data science lifecycle —
+      cleaning, exploratory analysis, feature engineering, hyperparameter tuning, and comparative
+      model evaluation — demonstrating that gradient-boosted trees outperform linear and ensemble
+      baselines on structured socioeconomic data.
+    </p>
 
-        <!-- Model comparison table -->
-        <div style="margin: 20px 0; padding: 16px 20px; background: var(--bg); border-radius: var(--radius); border: 1px solid var(--border);">
-          <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 10px;">Model Performance Comparison — Test Set</p>
-          <div style="overflow-x: auto;">
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem;">
-              <thead>
-                <tr style="border-bottom: 2px solid var(--border);">
-                  <th style="text-align: left; padding: 8px 12px; color: var(--text-muted); font-weight: 600;">Model</th>
-                  <th style="text-align: center; padding: 8px 12px; color: var(--text-muted); font-weight: 600;">Accuracy</th>
-                  <th style="text-align: center; padding: 8px 12px; color: var(--text-muted); font-weight: 600;">Precision</th>
-                  <th style="text-align: center; padding: 8px 12px; color: var(--text-muted); font-weight: 600;">Recall</th>
-                  <th style="text-align: center; padding: 8px 12px; color: var(--text-muted); font-weight: 600;">F1</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr style="border-bottom: 1px solid var(--border);">
-                  <td style="padding: 10px 12px;">Logistic Regression <span style="font-size:0.75rem; color:var(--text-muted);">(C = 100)</span></td>
-                  <td style="text-align: center; padding: 10px 12px;">84.79%</td>
-                  <td style="text-align: center; padding: 10px 12px;">0.810</td>
-                  <td style="text-align: center; padding: 10px 12px;">0.760</td>
-                  <td style="text-align: center; padding: 10px 12px;">0.780</td>
-                </tr>
-                <tr style="border-bottom: 1px solid var(--border);">
-                  <td style="padding: 10px 12px;">Random Forest <span style="font-size:0.75rem; color:var(--text-muted);">(200 trees, depth 20)</span></td>
-                  <td style="text-align: center; padding: 10px 12px;">85.98%</td>
-                  <td style="text-align: center; padding: 10px 12px;">0.836</td>
-                  <td style="text-align: center; padding: 10px 12px;">0.767</td>
-                  <td style="text-align: center; padding: 10px 12px;">0.793</td>
-                </tr>
-                <tr style="background: rgba(59,130,246,0.04);">
-                  <td style="padding: 10px 12px; font-weight: 600;">XGBoost <span style="font-size:0.75rem; color:var(--text-muted); font-weight:400;">(lr = 0.30, 100 trees) · best overall</span></td>
-                  <td style="text-align: center; padding: 10px 12px; font-weight: 700; color: var(--accent);">86.95%</td>
-                  <td style="text-align: center; padding: 10px 12px; font-weight: 700; color: var(--accent);">0.839</td>
-                  <td style="text-align: center; padding: 10px 12px; font-weight: 700; color: var(--accent);">0.796</td>
-                  <td style="text-align: center; padding: 10px 12px; font-weight: 700; color: var(--accent);">0.814</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 10px;">All models evaluated on 70/30 stratified split · metrics macro-averaged</p>
-        </div>
-
-        <!-- Tech Stack -->
-        <div class="tags-row">
-          <span class="tag">Python</span>
-          <span class="tag">Scikit-learn</span>
-          <span class="tag">XGBoost</span>
-          <span class="tag">Pandas</span>
-          <span class="tag">NumPy</span>
-          <span class="tag">Matplotlib</span>
-          <span class="tag">Seaborn</span>
-          <span class="tag">Jupyter Notebook</span>
-          <span class="tag">KDD Pipeline</span>
-          <span class="tag">UCI ML Repository</span>
-        </div>
+    <!-- Metrics -->
+    <div class="project-metrics">
+      <div class="metric-item">
+        <div class="metric-value">86.95%</div>
+        <div class="metric-label">Best Accuracy (XGBoost)</div>
       </div>
+      <div class="metric-item">
+        <div class="metric-value">0.814</div>
+        <div class="metric-label">F1 Score (macro)</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-value">+2.2pp</div>
+        <div class="metric-label">Gain over LR Baseline</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-value">3</div>
+        <div class="metric-label">Models Compared</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-value">47,621</div>
+        <div class="metric-label">Instances</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-value">14</div>
+        <div class="metric-label">Features</div>
+      </div>
+    </div>
 
-      <div class="project-card-footer">
-        <a href="https://github.com/emaadkalantarii/Census-Income-Prediction-using-Machine-Learning"
-           target="_blank" rel="noopener" class="btn btn-primary">
-          <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-          View on GitHub
-        </a>
+    <!-- Pipeline Architecture -->
+    <div style="margin: 24px 0 8px;">
+      <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 14px;">KDD Pipeline</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
+        <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">① Data Cleaning</div>
+        <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+        <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">② EDA</div>
+        <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+        <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">③ Preprocessing <span style="color: var(--text-muted); font-weight: 400;">(Scaling + Encoding)</span></div>
+        <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+        <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">④ HP Tuning</div>
+        <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+        <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">⑤ Model Evaluation</div>
       </div>
-    </article>
+    </div>
 
-    <!-- ── GitHub CTA ─────────────────────────────────────── -->
-    <article class="project-card fade-in">
-      <div class="project-card-header" style="padding: 28px 36px;">
-        <div>
-          <span class="project-card-num">More Work</span>
-          <h2 class="project-card-title" style="font-size: clamp(1.3rem, 2.5vw, 1.8rem);">Explore all projects on GitHub</h2>
-        </div>
-        <div style="flex-shrink:0;">
-          <span class="tag">Open Source</span>
-        </div>
+    <!-- Highlights -->
+    <ul class="project-bullets">
+      <li>Applied the full <strong>KDD process</strong> to the UCI Adult Census dataset — normalising inconsistent target labels, dropping rows with missing values (~2.5%), and performing stratified 70/30 train-test splitting to preserve class balance.</li>
+      <li>Conducted <strong>Exploratory Data Analysis (EDA)</strong> including descriptive statistics, a gender-vs-income stacked bar chart, a numerical-feature correlation heatmap, and an age distribution histogram with KDE — revealing key demographic patterns in income inequality.</li>
+      <li>Built a preprocessing pipeline applying <strong>MinMaxScaler</strong> to 6 numerical features and <strong>one-hot encoding</strong> (via <code>pd.get_dummies</code>, <code>drop_first=True</code>) to 8 categorical features, followed by <strong>LabelEncoder</strong> on the binary target.</li>
+      <li>Performed systematic <strong>hyperparameter sensitivity analysis</strong> for all three models: swept regularisation <em>C</em> for Logistic Regression, <em>n_estimators</em> and <em>max_depth</em> for Random Forest, and <em>learning_rate</em> and <em>n_estimators</em> for XGBoost — selecting optimal values from accuracy-vs-parameter plots.</li>
+      <li>Evaluated all models on 7 metrics (Accuracy, MSE, RMSE, R², Precision, Recall, F1) with confusion matrices; <strong>XGBoost achieved the best results</strong> (86.95% accuracy, F1 = 0.814), outperforming Random Forest by 0.97 pp and Logistic Regression by 2.16 pp.</li>
+      <li>Delivered the project as a <strong>fully documented Jupyter Notebook</strong> with narrative markdown commentary alongside each code section, making the methodology transparent and reproducible — alongside a clean, modular Python script structured for production use.</li>
+    </ul>
+
+    <!-- Model comparison table -->
+    <div style="margin: 20px 0; padding: 16px 20px; background: var(--bg); border-radius: var(--radius); border: 1px solid var(--border);">
+      <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 10px;">Model Performance Comparison — Test Set</p>
+      <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem;">
+          <thead>
+            <tr style="border-bottom: 2px solid var(--border);">
+              <th style="text-align: left; padding: 8px 12px; color: var(--text-muted); font-weight: 600;">Model</th>
+              <th style="text-align: center; padding: 8px 12px; color: var(--text-muted); font-weight: 600;">Accuracy</th>
+              <th style="text-align: center; padding: 8px 12px; color: var(--text-muted); font-weight: 600;">Precision</th>
+              <th style="text-align: center; padding: 8px 12px; color: var(--text-muted); font-weight: 600;">Recall</th>
+              <th style="text-align: center; padding: 8px 12px; color: var(--text-muted); font-weight: 600;">F1</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid var(--border);">
+              <td style="padding: 10px 12px;">Logistic Regression <span style="font-size:0.75rem; color:var(--text-muted);">(C = 100)</span></td>
+              <td style="text-align: center; padding: 10px 12px;">84.79%</td>
+              <td style="text-align: center; padding: 10px 12px;">0.810</td>
+              <td style="text-align: center; padding: 10px 12px;">0.760</td>
+              <td style="text-align: center; padding: 10px 12px;">0.780</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border);">
+              <td style="padding: 10px 12px;">Random Forest <span style="font-size:0.75rem; color:var(--text-muted);">(200 trees, depth 20)</span></td>
+              <td style="text-align: center; padding: 10px 12px;">85.98%</td>
+              <td style="text-align: center; padding: 10px 12px;">0.836</td>
+              <td style="text-align: center; padding: 10px 12px;">0.767</td>
+              <td style="text-align: center; padding: 10px 12px;">0.793</td>
+            </tr>
+            <tr style="background: rgba(59,130,246,0.04);">
+              <td style="padding: 10px 12px; font-weight: 600;">XGBoost <span style="font-size:0.75rem; color:var(--text-muted); font-weight:400;">(lr = 0.30, 100 trees) · best overall</span></td>
+              <td style="text-align: center; padding: 10px 12px; font-weight: 700; color: var(--accent);">86.95%</td>
+              <td style="text-align: center; padding: 10px 12px; font-weight: 700; color: var(--accent);">0.839</td>
+              <td style="text-align: center; padding: 10px 12px; font-weight: 700; color: var(--accent);">0.796</td>
+              <td style="text-align: center; padding: 10px 12px; font-weight: 700; color: var(--accent);">0.814</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <div class="project-card-body" style="padding: 22px 36px;">
-        <p class="project-card-desc" style="margin: 0;">
-          All repositories — including experiments, utilities, and additional work — are available on my GitHub profile.
-        </p>
-      </div>
-      <div class="project-card-footer">
-        <a href="https://github.com/emaadkalantarii" target="_blank" rel="noopener" class="btn btn-primary">
-          <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-          View GitHub Profile ↗
-        </a>
-      </div>
-    </article>
+      <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 10px;">All models evaluated on 70/30 stratified split · metrics macro-averaged</p>
+    </div>
+
+    <!-- Tech Stack -->
+    <div class="tags-row">
+      <span class="tag">Python</span>
+      <span class="tag">Scikit-learn</span>
+      <span class="tag">XGBoost</span>
+      <span class="tag">Pandas</span>
+      <span class="tag">NumPy</span>
+      <span class="tag">Matplotlib</span>
+      <span class="tag">Seaborn</span>
+      <span class="tag">Jupyter Notebook</span>
+      <span class="tag">KDD Pipeline</span>
+      <span class="tag">UCI ML Repository</span>
+    </div>
+  </div>
+
+  <div class="project-card-footer">
+    <a href="https://github.com/emaadkalantarii/Census-Income-Prediction-using-Machine-Learning"
+       target="_blank" rel="noopener" class="btn btn-primary">
+      <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      View on GitHub
+    </a>
+  </div>
+</article>
+
+<!-- ── GitHub CTA ─────────────────────────────────────── -->
+<article class="project-card fade-in">
+  <div class="project-card-header" style="padding: 28px 36px;">
+    <div>
+      <span class="project-card-num">More Work</span>
+      <h2 class="project-card-title" style="font-size: clamp(1.3rem, 2.5vw, 1.8rem);">Explore all projects on GitHub</h2>
+    </div>
+    <div style="flex-shrink:0;">
+      <span class="tag">Open Source</span>
+    </div>
+  </div>
+  <div class="project-card-body" style="padding: 22px 36px;">
+    <p class="project-card-desc" style="margin: 0;">
+      All repositories — including experiments, utilities, and additional work — are available on my GitHub profile.
+    </p>
+  </div>
+  <div class="project-card-footer">
+    <a href="https://github.com/emaadkalantarii" target="_blank" rel="noopener" class="btn btn-primary">
+      <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      View GitHub Profile ↗
+    </a>
+  </div>
+</article>
+```
 
   </div><!-- /container -->
 
   <!-- ── Footer ─────────────────────────────────────────── -->
+
   <footer class="footer">
     <div class="container footer-inner">
       <span><span class="footer-name">© 2026 Emad Kalantari</span></span>
@@ -678,5 +867,6 @@
   </footer>
 
   <script src="assets/js/main.js"></script>
+
 </body>
 </html>
