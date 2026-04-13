@@ -825,6 +825,155 @@
       </div>
     </article>
 
+    <!-- ── Project 7: Employee Attrition Prediction ─────────── -->
+    <article class="project-card fade-in">
+      <div class="project-card-header">
+        <div>
+          <span class="project-card-num">PROJECT 07</span>
+          <h2 class="project-card-title">Employee Attrition Prediction<br>via Machine Learning &amp; Explainable AI</h2>
+        </div>
+        <div style="flex-shrink:0;">
+          <span class="tag tag-green">Machine Learning</span>
+        </div>
+      </div>
+
+      <div class="project-card-body">
+        <p class="project-card-desc">
+          A complete, end-to-end machine learning pipeline that predicts whether an employee is at
+          risk of leaving a company — and more importantly, <strong>explains why</strong>. Built on
+          the <strong>IBM HR Analytics dataset</strong> (1,470 employees, 35 features), the project
+          covers every stage of a professional data science workflow: exploratory data analysis,
+          preprocessing, feature engineering, multi-model training with cross-validation, and
+          model interpretability using <strong>SHAP (SHapley Additive exPlanations)</strong>.
+          The final pipeline is deployed as a <strong>live interactive Streamlit web application</strong>,
+          making predictions and explanations accessible to anyone without any code.
+        </p>
+
+        <!-- Metrics -->
+        <div class="project-metrics">
+          <div class="metric-item">
+            <div class="metric-value">0.966</div>
+            <div class="metric-label">CV ROC-AUC</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">1,470</div>
+            <div class="metric-label">Employees</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">35</div>
+            <div class="metric-label">Raw Features</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">7</div>
+            <div class="metric-label">Engineered Features</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">3</div>
+            <div class="metric-label">Models Compared</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">84 / 16</div>
+            <div class="metric-label">Class Split (%)</div>
+          </div>
+        </div>
+
+        <!-- Highlights -->
+        <ul class="project-bullets">
+          <li>Conducted thorough <strong>Exploratory Data Analysis</strong> across all 35 features, identifying key attrition drivers including overtime patterns, compensation gaps relative to experience, satisfaction scores, and early-tenure risk — informing every subsequent modeling decision.</li>
+          <li>Built a rigorous <strong>preprocessing pipeline</strong>: Label Encoding for binary categoricals, One-Hot Encoding with <code>drop_first=True</code> to eliminate multicollinearity, StandardScaler fitted exclusively on training data, and <strong>SMOTE</strong> (Synthetic Minority Over-sampling Technique) applied to the training set only — preserving test set integrity and preventing data leakage throughout.</li>
+          <li>Engineered <strong>7 domain-driven features</strong> from existing columns — including <code>IncomePerYearExp</code>, <code>SatisfactionScore</code>, <code>CareerGrowthRate</code>, and <code>IsEarlyCareer</code> — capturing business-meaningful signals not present in the raw data; final feature set selected via <strong>Random Forest importance ranking</strong> (top 30 of 37 total features retained).</li>
+          <li>Trained and compared <strong>Logistic Regression, Random Forest, and XGBoost</strong> using 5-fold stratified cross-validation; selected <strong>ROC-AUC as the primary metric</strong> (over accuracy) due to class imbalance — a naive classifier predicting "Stayed" for all employees would achieve 84% accuracy with zero business value.</li>
+          <li>Applied <strong>SHAP TreeExplainer</strong> for both global and individual-level model interpretability: beeswarm summary plots revealing feature impact direction across all employees, dependence plots exposing interaction effects between top features, and per-employee <strong>waterfall charts</strong> explaining each prediction step by step — bridging the gap between model output and business action.</li>
+          <li>Deployed the full pipeline as a <strong>live Streamlit web application</strong> on Streamlit Community Cloud, featuring real-time employee risk scoring, a dynamic SHAP waterfall explanation for every prediction, and a model performance dashboard — making the model accessible to non-technical stakeholders without any local setup.</li>
+        </ul>
+
+        <!-- Model comparison table -->
+        <div style="margin: 20px 0; padding: 16px 20px; background: var(--bg); border-radius: var(--radius); border: 1px solid var(--border);">
+          <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 10px;">Model Performance Comparison — Test Set</p>
+          <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem;">
+              <thead>
+                <tr style="border-bottom: 2px solid var(--border);">
+                  <th style="text-align: left; padding: 8px 12px; color: var(--text-muted); font-weight: 600;">Model</th>
+                  <th style="text-align: center; padding: 8px 12px; color: var(--text-muted); font-weight: 600;">CV ROC-AUC</th>
+                  <th style="text-align: center; padding: 8px 12px; color: var(--text-muted); font-weight: 600;">Test ROC-AUC</th>
+                  <th style="text-align: center; padding: 8px 12px; color: var(--text-muted); font-weight: 600;">Test F1</th>
+                  <th style="text-align: center; padding: 8px 12px; color: var(--text-muted); font-weight: 600;">Test Recall</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--border);">
+                  <td style="padding: 10px 12px;">Logistic Regression</td>
+                  <td style="text-align: center; padding: 10px 12px;">0.9236</td>
+                  <td style="text-align: center; padding: 10px 12px;">0.7206</td>
+                  <td style="text-align: center; padding: 10px 12px;">0.3762</td>
+                  <td style="text-align: center; padding: 10px 12px;">0.4043</td>
+                </tr>
+                <tr style="background: rgba(59,130,246,0.04); border-bottom: 1px solid var(--border);">
+                  <td style="padding: 10px 12px; font-weight: 600;">Random Forest <span style="font-size:0.75rem; color:var(--text-muted); font-weight:400;">· best Test ROC-AUC</span></td>
+                  <td style="text-align: center; padding: 10px 12px; font-weight: 700; color: var(--accent);">0.9658</td>
+                  <td style="text-align: center; padding: 10px 12px; font-weight: 700; color: var(--accent);">0.7309</td>
+                  <td style="text-align: center; padding: 10px 12px;">0.3250</td>
+                  <td style="text-align: center; padding: 10px 12px;">0.2766</td>
+                </tr>
+                <tr>
+                  <td style="padding: 10px 12px;">XGBoost</td>
+                  <td style="text-align: center; padding: 10px 12px;">0.9648</td>
+                  <td style="text-align: center; padding: 10px 12px;">0.7014</td>
+                  <td style="text-align: center; padding: 10px 12px;">0.3291</td>
+                  <td style="text-align: center; padding: 10px 12px;">0.2766</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 10px;">All models evaluated on 80/20 stratified split · ROC-AUC chosen as primary metric due to 84/16 class imbalance · 5-fold stratified cross-validation</p>
+        </div>
+
+        <!-- SHAP Insights box -->
+        <div style="margin: 20px 0; padding: 16px 20px; background: var(--bg); border-radius: var(--radius); border: 1px solid var(--border);">
+          <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 10px;">Top Attrition Drivers — SHAP Analysis</p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; font-size: 0.85rem;">
+            <div><span style="color: var(--text-muted);">🔴 Highest risk:</span> <strong>OverTime = Yes</strong></div>
+            <div><span style="color: var(--text-muted);">🔴 Risk factor:</span> <strong>Low SatisfactionScore</strong></div>
+            <div><span style="color: var(--text-muted);">🔴 Risk factor:</span> <strong>Low IncomePerYearExp</strong></div>
+            <div><span style="color: var(--text-muted);">🔴 Risk factor:</span> <strong>StockOptionLevel = 0</strong></div>
+            <div><span style="color: var(--text-muted);">🔴 Risk factor:</span> <strong>MaritalStatus = Single</strong></div>
+            <div><span style="color: var(--text-muted);">🟢 Protective:</span> <strong>High YearsAtCompany</strong></div>
+          </div>
+        </div>
+
+        <!-- Tech Stack -->
+        <div class="tags-row">
+          <span class="tag">Python</span>
+          <span class="tag">Scikit-learn</span>
+          <span class="tag">XGBoost</span>
+          <span class="tag">SHAP</span>
+          <span class="tag">SMOTE</span>
+          <span class="tag">Pandas</span>
+          <span class="tag">NumPy</span>
+          <span class="tag">Matplotlib</span>
+          <span class="tag">Seaborn</span>
+          <span class="tag">Streamlit</span>
+          <span class="tag">Streamlit Cloud</span>
+          <span class="tag">Jupyter Notebook</span>
+          <span class="tag">IBM HR Analytics</span>
+        </div>
+      </div>
+
+      <div class="project-card-footer">
+        <a href="https://github.com/emaadkalantarii/Employee-attrition"
+           target="_blank" rel="noopener" class="btn btn-primary">
+          <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          View on GitHub
+        </a>
+        <a href="https://employee-attrition-predictor-ml.streamlit.app"
+           target="_blank" rel="noopener" class="btn btn-primary" style="background: #ff4b4b; border-color: #ff4b4b;">
+          <svg viewBox="0 0 24 24" style="fill:white;" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.04c-.76 1.32-1.53 2.63-2.29 3.95L12 9.93l2.29-3.94C13.53 4.67 12.76 3.36 12 2.04zM4.1 15.48l4.57-2.64-2.28-3.95L2.1 11.53c.66 1.31 1.32 2.63 2 3.95zm15.8 0c.67-1.32 1.33-2.64 2-3.95l-4.29-2.64-2.28 3.95 4.57 2.64zM7.43 17.14l-.01 5.27 4.57-2.64.01-5.27-4.57 2.64zm9.14 0-4.57-2.64.01 5.27 4.57 2.64-.01-5.27z"/></svg>
+          Live App ↗
+        </a>
+      </div>
+    </article>
+
     <!-- ── GitHub CTA ─────────────────────────────────────── -->
     <article class="project-card fade-in">
       <div class="project-card-header" style="padding: 28px 36px;">
