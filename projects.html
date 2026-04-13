@@ -227,7 +227,7 @@
           <h2 class="project-card-title">EEG Topomap Binary Classification<br>via Deep Learning</h2>
         </div>
         <div style="flex-shrink:0;">
-          <span class="tag tag-green">Computer Vision · Neuroscience</span>
+          <span class="tag tag-green">Computer Vision</span>
         </div>
       </div>
 
@@ -338,15 +338,197 @@
       </div>
     </article>
 
-    <!-- ── Project 4: LLM Historical Network Extraction ───── -->
+    <!-- ── Project 4: Signature Origin Classification ──────── -->
     <article class="project-card fade-in">
       <div class="project-card-header">
         <div>
           <span class="project-card-num">PROJECT 04</span>
+          <h2 class="project-card-title">Signature Origin Classification<br>Human vs. Generative AI</h2>
+        </div>
+        <div style="flex-shrink:0;">
+          <span class="tag tag-green">Sequence Classification</span>
+        </div>
+      </div>
+
+      <div class="project-card-body">
+        <p class="project-card-desc">
+          An end-to-end deep learning pipeline for <strong>4-class sequence classification</strong>,
+          distinguishing genuine human handwritten signatures from those synthesized by three generative
+          architectures — <strong>GAN</strong>, <strong>SDT</strong>, and <strong>VAE</strong>. The
+          project addresses the growing challenge of AI-generated biometric content attribution, processing
+          raw 2D pen-stroke coordinate sequences from CSV files through a full training and inference
+          pipeline built entirely in PyTorch, achieving <strong>80.21% test accuracy</strong> and
+          <strong>85.70%</strong> accuracy on the full dataset.
+        </p>
+
+        <!-- Metrics -->
+        <div class="project-metrics">
+          <div class="metric-item">
+            <div class="metric-value">80.21%</div>
+            <div class="metric-label">Test Accuracy</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">85.70%</div>
+            <div class="metric-label">Full Dataset Accuracy</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">4</div>
+            <div class="metric-label">Classes</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">60</div>
+            <div class="metric-label">Training Epochs</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">BiGRU</div>
+            <div class="metric-label">Architecture</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">150</div>
+            <div class="metric-label">Sequence Length</div>
+          </div>
+        </div>
+
+        <!-- Classes -->
+        <div style="margin: 24px 0 8px;">
+          <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 14px;">Classification Target</p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px;">
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 10px 14px; font-size: 0.85rem;">
+              <span style="font-weight: 600;">Label 0</span> <span style="color: var(--text-muted);">— Human</span><br>
+              <span style="font-size: 0.78rem; color: var(--text-muted);">Genuine handwritten signature</span>
+            </div>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 10px 14px; font-size: 0.85rem;">
+              <span style="font-weight: 600;">Label 1</span> <span style="color: var(--text-muted);">— GAN</span><br>
+              <span style="font-size: 0.78rem; color: var(--text-muted);">Generative Adversarial Network</span>
+            </div>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 10px 14px; font-size: 0.85rem;">
+              <span style="font-weight: 600;">Label 2</span> <span style="color: var(--text-muted);">— SDT</span><br>
+              <span style="font-size: 0.78rem; color: var(--text-muted);">Sigma-Delta Transform model</span>
+            </div>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 10px 14px; font-size: 0.85rem;">
+              <span style="font-weight: 600;">Label 3</span> <span style="color: var(--text-muted);">— VAE</span><br>
+              <span style="font-size: 0.78rem; color: var(--text-muted);">Variational Autoencoder</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Architecture -->
+        <div style="margin: 24px 0 8px;">
+          <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 14px;">Model Architecture</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">Input <span style="color: var(--text-muted); font-weight: 400;">(X, Y) sequence · 150 steps</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">BiGRU <span style="color: var(--text-muted); font-weight: 400;">2 layers · 128 units/dir</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">Concat <span style="color: var(--text-muted); font-weight: 400;">forward + backward · 256-dim</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">Dropout <span style="color: var(--text-muted); font-weight: 400;">p = 0.25</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">Linear <span style="color: var(--text-muted); font-weight: 400;">256 → 4 classes</span></div>
+          </div>
+        </div>
+
+        <!-- Highlights -->
+        <ul class="project-bullets">
+          <li>Designed a <strong>Bidirectional GRU</strong> classifier (2-layer, 128 units/direction) that captures both forward and backward temporal dependencies in pen-stroke sequences — chosen over unidirectional RNNs to exploit the full context of each signature trajectory.</li>
+          <li>Engineered a preprocessing pipeline with <strong>per-signature independent Min-Max normalization</strong> on X and Y axes, zero-padding/truncation to a fixed 150-timestep window, and graceful handling of degenerate single-point sequences.</li>
+          <li>Conducted a systematic <strong>sequence-length hyperparameter search</strong> across four values (150, 200, 400, 570 timesteps), selecting 150 as the optimal trade-off — achieving the lowest validation loss (0.3348) with the most efficient training time.</li>
+          <li>Trained with <strong>Adam optimizer</strong>, <strong>ReduceLROnPlateau</strong> scheduling (factor 0.5, patience 7 — automatically halving the learning rate at epoch 52), <strong>gradient clipping</strong> (threshold 1.0), and <strong>early stopping</strong> (patience 15) across 60 epochs, with best checkpoint saved at epoch 57.</li>
+          <li>Implemented a <strong>batched inference API</strong> (<code>load_and_predict</code>) with automatic CUDA/CPU device detection, recursive CSV discovery, and configurable batch sizes — enabling the model to be used as a standalone, reusable prediction module.</li>
+          <li>Applied a <strong>stratified 70/15/15 train/validation/test split</strong> to ensure representative class distribution across all partitions, with the test set kept fully held-out throughout training and hyperparameter tuning.</li>
+        </ul>
+
+        <!-- Training details box -->
+        <div style="margin: 20px 0; padding: 16px 20px; background: var(--bg); border-radius: var(--radius); border: 1px solid var(--border);">
+          <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 10px;">Training Configuration &amp; Results</p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; font-size: 0.85rem;">
+            <div><span style="color: var(--text-muted);">Optimizer:</span> <strong>Adam (lr = 0.001)</strong></div>
+            <div><span style="color: var(--text-muted);">Weight decay:</span> <strong>1e-4 (L2)</strong></div>
+            <div><span style="color: var(--text-muted);">Scheduler:</span> <strong>ReduceLROnPlateau</strong></div>
+            <div><span style="color: var(--text-muted);">Gradient clip:</span> <strong>1.0</strong></div>
+            <div><span style="color: var(--text-muted);">Best val loss:</span> <strong>0.3291 (Epoch 57)</strong></div>
+            <div><span style="color: var(--text-muted);">Best val accuracy:</span> <strong>82.24%</strong></div>
+            <div><span style="color: var(--text-muted);">Data split:</span> <strong>70 / 15 / 15</strong></div>
+            <div><span style="color: var(--text-muted);">Loss function:</span> <strong>CrossEntropyLoss</strong></div>
+          </div>
+        </div>
+
+        <!-- Sequence length tuning table -->
+        <div style="margin: 20px 0; padding: 16px 20px; background: var(--bg); border-radius: var(--radius); border: 1px solid var(--border);">
+          <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 10px;">Sequence Length Hyperparameter Search</p>
+          <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem;">
+              <thead>
+                <tr style="border-bottom: 2px solid var(--border);">
+                  <th style="text-align: left; padding: 8px 12px; color: var(--text-muted); font-weight: 600;">MAX_SEQ_LENGTH</th>
+                  <th style="text-align: center; padding: 8px 12px; color: var(--text-muted); font-weight: 600;">Val Loss</th>
+                  <th style="text-align: center; padding: 8px 12px; color: var(--text-muted); font-weight: 600;">Val Accuracy</th>
+                  <th style="text-align: center; padding: 8px 12px; color: var(--text-muted); font-weight: 600;">Note</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--border); background: rgba(59,130,246,0.04);">
+                  <td style="padding: 10px 12px; font-weight: 600;">150 <span style="font-size:0.75rem; color:var(--text-muted); font-weight:400;">· selected</span></td>
+                  <td style="text-align: center; padding: 10px 12px; font-weight: 700; color: var(--accent);">0.3348</td>
+                  <td style="text-align: center; padding: 10px 12px; font-weight: 700; color: var(--accent);">80.21%</td>
+                  <td style="text-align: center; padding: 10px 12px; font-size: 0.8rem; color: var(--text-muted);">Best loss · most efficient</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border);">
+                  <td style="padding: 10px 12px;">200</td>
+                  <td style="text-align: center; padding: 10px 12px;">0.4132</td>
+                  <td style="text-align: center; padding: 10px 12px;">78.74%</td>
+                  <td style="text-align: center; padding: 10px 12px; font-size: 0.8rem; color: var(--text-muted);">Worse loss &amp; accuracy</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border);">
+                  <td style="padding: 10px 12px;">400</td>
+                  <td style="text-align: center; padding: 10px 12px;">0.3812</td>
+                  <td style="text-align: center; padding: 10px 12px;">80.00%</td>
+                  <td style="text-align: center; padding: 10px 12px; font-size: 0.8rem; color: var(--text-muted);">Comparable accuracy</td>
+                </tr>
+                <tr>
+                  <td style="padding: 10px 12px;">570</td>
+                  <td style="text-align: center; padding: 10px 12px;">0.3520</td>
+                  <td style="text-align: center; padding: 10px 12px;">81.89%</td>
+                  <td style="text-align: center; padding: 10px 12px; font-size: 0.8rem; color: var(--text-muted);">Marginal gain, high cost</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Tech Stack -->
+        <div class="tags-row">
+          <span class="tag">Python</span>
+          <span class="tag">PyTorch</span>
+          <span class="tag">Bidirectional GRU</span>
+          <span class="tag">Sequence Classification</span>
+          <span class="tag">Scikit-learn</span>
+          <span class="tag">NumPy</span>
+          <span class="tag">Pandas</span>
+          <span class="tag">CUDA</span>
+          <span class="tag">Biometric Authentication</span>
+          <span class="tag">Time-Series</span>
+        </div>
+      </div>
+
+      <div class="project-card-footer">
+        <a href="https://github.com/emaadkalantarii/Signature-origin-classifier"
+           target="_blank" rel="noopener" class="btn btn-primary">
+          <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          View on GitHub
+        </a>
+      </div>
+    </article>
+
+    <!-- ── Project 5: LLM Historical Network Extraction ───── -->
+    <article class="project-card fade-in">
+      <div class="project-card-header">
+        <div>
+          <span class="project-card-num">PROJECT 05</span>
           <h2 class="project-card-title">Network Data Extraction using LLMs<br>for Historical Documents</h2>
         </div>
         <div style="flex-shrink:0;">
-          <span class="tag tag-green">NLP · Digital History</span>
+          <span class="tag tag-green">NLP</span>
         </div>
       </div>
 
@@ -501,11 +683,11 @@
       </div>
     </article>
 
-    <!-- ── Project 4: Census Income Prediction ──────────── -->
+    <!-- ── Project 6: Census Income Prediction ──────────── -->
     <article class="project-card fade-in">
       <div class="project-card-header">
         <div>
-          <span class="project-card-num">PROJECT 05</span>
+          <span class="project-card-num">PROJECT 06</span>
           <h2 class="project-card-title">Census Income Prediction<br>using Machine Learning</h2>
         </div>
         <div style="flex-shrink:0;">
