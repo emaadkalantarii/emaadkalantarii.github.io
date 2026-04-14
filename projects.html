@@ -974,6 +974,211 @@
       </div>
     </article>
 
+    <!-- ── Project 8: Urban Air Quality Intelligence ─────── -->
+    <article class="project-card fade-in">
+      <div class="project-card-header">
+        <div>
+          <span class="project-card-num">PROJECT 08</span>
+          <h2 class="project-card-title">Urban Air Quality Intelligence Platform<br>via Machine Learning &amp; Live API Integration</h2>
+        </div>
+        <div style="flex-shrink:0;">
+          <span class="tag tag-green">Machine Learning</span>
+        </div>
+      </div>
+
+      <div class="project-card-body">
+        <p class="project-card-desc">
+          An end-to-end data science system that predicts urban air quality using two parallel data
+          sources: the <strong>UCI Air Quality dataset</strong> (9,357 hourly sensor readings, Italy
+          2004&ndash;2005) and <strong>live multi-city measurements</strong> fetched programmatically
+          from the <strong>OpenAQ REST API v3</strong> (Italy &middot; France &middot; Germany).
+          The project covers the complete ML workflow — exploratory data analysis, time-series
+          feature engineering with <strong>lag features</strong>, <strong>rolling window statistics</strong>,
+          and <strong>cyclical encodings</strong>, dual-track modelling (classification + regression),
+          and model interpretability via <strong>SHAP</strong> — deployed as a
+          <strong>live interactive Streamlit dashboard</strong> with real-time AQI prediction.
+        </p>
+
+        <!-- Metrics -->
+        <div class="project-metrics">
+          <div class="metric-item">
+            <div class="metric-value">86.6%</div>
+            <div class="metric-label">XGBoost Accuracy</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">0.74</div>
+            <div class="metric-label">F1 (macro)</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">0.885</div>
+            <div class="metric-label">R² (NO₂ Regression)</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">16.5</div>
+            <div class="metric-label">RMSE (µg/m³)</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">46</div>
+            <div class="metric-label">Engineered Features</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">9,357</div>
+            <div class="metric-label">Hourly Readings</div>
+          </div>
+        </div>
+
+        <!-- Pipeline diagram -->
+        <div style="margin: 24px 0 8px;">
+          <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 14px;">Data Pipeline</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">UCI Dataset <span style="color: var(--text-muted); font-weight: 400;">9,357 rows</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">+</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">OpenAQ API v3 <span style="color: var(--text-muted); font-weight: 400;">live IT · FR · DE</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">EDA <span style="color: var(--text-muted); font-weight: 400;">+ Cleaning</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">Feature Eng. <span style="color: var(--text-muted); font-weight: 400;">46 features</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">XGBoost <span style="color: var(--text-muted); font-weight: 400;">cls + reg</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">SHAP <span style="color: var(--text-muted); font-weight: 400;">Explainability</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">Streamlit <span style="color: var(--text-muted); font-weight: 400;">Live App</span></div>
+          </div>
+        </div>
+
+        <!-- Highlights -->
+        <ul class="project-bullets">
+          <li>Combined two heterogeneous data sources — a static UCI sensor dataset and a <strong>live REST API (OpenAQ v3)</strong> — into a unified analysis pipeline, demonstrating real-world data ingestion across Italy, France, and Germany with programmatic API calls at both acquisition time and dashboard runtime.</li>
+          <li>Engineered <strong>46 features</strong> from raw hourly sensor readings: <strong>lag features</strong> (<code>NO2_lag_1h</code>, <code>NO2_lag_3h</code>, <code>NO2_lag_24h</code>), <strong>rolling window statistics</strong> (3h/6h/24h mean and std), and <strong>cyclical sin/cos encodings</strong> for hour-of-day, day-of-week, and month — preventing the model from treating midnight and 11pm as 23 steps apart.</li>
+          <li>Applied <strong>time-aware 70/15/15 chronological splitting</strong> to prevent data leakage — a critical distinction from random splitting on time-series data that would allow the model to train on the future of its own test set; also handled class imbalance via <code>class_weight="balanced"</code> and per-sample weights in XGBoost.</li>
+          <li>Ran <strong>two parallel modelling tracks</strong>: AQI category classification (4 classes: Good / Moderate / Poor / Very Poor) and NO₂ concentration regression — training Dummy baseline, Random Forest, and XGBoost for each; XGBoost achieved <strong>86.6% accuracy (+20.7pp over baseline)</strong> and <strong>R²&nbsp;=&nbsp;0.885</strong> on the regression task.</li>
+          <li>Applied <strong>SHAP TreeExplainer</strong> for exact (non-approximate) global and local model interpretability — generated beeswarm, dependence, and per-prediction waterfall charts; top feature <code>NO2GT_rolling_3h_mean</code> (mean |SHAP|&nbsp;=&nbsp;1.51) confirmed that sustained recent pollution history is the model's strongest predictive signal, physically interpretable and trust-building.</li>
+          <li>Deployed as a <strong>4-page Streamlit web application</strong> on Streamlit Community Cloud, featuring real-time AQI prediction with per-class confidence breakdown, an interactive SHAP explainer with waterfall charts for individual predictions, and a live OpenAQ data fetch panel — fully accessible via public URL with no local setup.</li>
+        </ul>
+
+        <!-- Model comparison table -->
+        <div style="margin: 20px 0; padding: 16px 20px; background: var(--bg); border-radius: var(--radius); border: 1px solid var(--border);">
+          <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 14px;">Classification — Model Performance Comparison (Test Set)</p>
+          <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem;">
+              <thead>
+                <tr style="border-bottom: 2px solid var(--border);">
+                  <th style="text-align: left; padding: 8px 12px; color: var(--text-muted); font-weight: 600;">Model</th>
+                  <th style="text-align: center; padding: 8px 12px; color: var(--text-muted); font-weight: 600;">Accuracy</th>
+                  <th style="text-align: center; padding: 8px 12px; color: var(--text-muted); font-weight: 600;">F1 (macro)</th>
+                  <th style="text-align: center; padding: 8px 12px; color: var(--text-muted); font-weight: 600;">F1 (weighted)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--border);">
+                  <td style="padding: 10px 12px;">Dummy baseline <span style="font-size:0.75rem; color:var(--text-muted);">· majority class</span></td>
+                  <td style="text-align: center; padding: 10px 12px;">65.9%</td>
+                  <td style="text-align: center; padding: 10px 12px;">0.20</td>
+                  <td style="text-align: center; padding: 10px 12px;">0.52</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border);">
+                  <td style="padding: 10px 12px;">Random Forest <span style="font-size:0.75rem; color:var(--text-muted);">· 200 trees</span></td>
+                  <td style="text-align: center; padding: 10px 12px;">80.8%</td>
+                  <td style="text-align: center; padding: 10px 12px;">0.63</td>
+                  <td style="text-align: center; padding: 10px 12px;">0.75</td>
+                </tr>
+                <tr style="background: rgba(59,130,246,0.04);">
+                  <td style="padding: 10px 12px; font-weight: 600;">XGBoost <span style="font-size:0.75rem; color:var(--text-muted); font-weight:400;">· 300 rounds, early stopping · best overall</span></td>
+                  <td style="text-align: center; padding: 10px 12px; font-weight: 700; color: var(--accent);">86.6%</td>
+                  <td style="text-align: center; padding: 10px 12px; font-weight: 700; color: var(--accent);">0.74</td>
+                  <td style="text-align: center; padding: 10px 12px; font-weight: 700; color: var(--accent);">0.84</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div style="height: 14px;"></div>
+
+          <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 14px;">Regression — NO₂ Concentration (µg/m³) (Test Set)</p>
+          <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem;">
+              <thead>
+                <tr style="border-bottom: 2px solid var(--border);">
+                  <th style="text-align: left; padding: 8px 12px; color: var(--text-muted); font-weight: 600;">Model</th>
+                  <th style="text-align: center; padding: 8px 12px; color: var(--text-muted); font-weight: 600;">RMSE</th>
+                  <th style="text-align: center; padding: 8px 12px; color: var(--text-muted); font-weight: 600;">MAE</th>
+                  <th style="text-align: center; padding: 8px 12px; color: var(--text-muted); font-weight: 600;">R²</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--border);">
+                  <td style="padding: 10px 12px;">Dummy baseline <span style="font-size:0.75rem; color:var(--text-muted);">· training mean</span></td>
+                  <td style="text-align: center; padding: 10px 12px;">70.39</td>
+                  <td style="text-align: center; padding: 10px 12px;">57.60</td>
+                  <td style="text-align: center; padding: 10px 12px;">&minus;1.094</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border);">
+                  <td style="padding: 10px 12px;">Random Forest <span style="font-size:0.75rem; color:var(--text-muted);">· 200 trees</span></td>
+                  <td style="text-align: center; padding: 10px 12px;">17.18</td>
+                  <td style="text-align: center; padding: 10px 12px;">10.02</td>
+                  <td style="text-align: center; padding: 10px 12px;">0.875</td>
+                </tr>
+                <tr style="background: rgba(59,130,246,0.04);">
+                  <td style="padding: 10px 12px; font-weight: 600;">XGBoost <span style="font-size:0.75rem; color:var(--text-muted); font-weight:400;">· early stopping round 214 · best overall</span></td>
+                  <td style="text-align: center; padding: 10px 12px; font-weight: 700; color: var(--accent);">16.49</td>
+                  <td style="text-align: center; padding: 10px 12px; font-weight: 700; color: var(--accent);">9.37</td>
+                  <td style="text-align: center; padding: 10px 12px; font-weight: 700; color: var(--accent);">0.885</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 10px;">Chronological 70/15/15 time-aware split · class imbalance handled via balanced class weights · 3 models × 2 tracks</p>
+        </div>
+
+        <!-- SHAP Insights box -->
+        <div style="margin: 20px 0; padding: 16px 20px; background: var(--bg); border-radius: var(--radius); border: 1px solid var(--border);">
+          <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 10px;">Top SHAP Features — Predicting "Poor" AQI</p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; font-size: 0.85rem;">
+            <div><span style="color: var(--text-muted);">🔴 Rank 1 (|SHAP| 1.511):</span> <strong>NO2GT_rolling_3h_mean</strong></div>
+            <div><span style="color: var(--text-muted);">🔴 Rank 2 (|SHAP| 0.548):</span> <strong>NO2GT_lag_1h</strong></div>
+            <div><span style="color: var(--text-muted);">🔴 Rank 3 (|SHAP| 0.505):</span> <strong>NOx(GT) sensor</strong></div>
+            <div><span style="color: var(--text-muted);">🔴 Rank 4 (|SHAP| 0.484):</span> <strong>NO2GT_change_1h</strong></div>
+            <div><span style="color: var(--text-muted);">🔴 Rank 5 (|SHAP| 0.401):</span> <strong>NO2GT_change_3h</strong></div>
+            <div><span style="color: var(--text-muted);">🟢 Physical insight:</span> <strong>Lag + rolling features dominate — pollution evolves gradually</strong></div>
+          </div>
+        </div>
+
+        <!-- Tech Stack -->
+        <div class="tags-row">
+          <span class="tag">Python</span>
+          <span class="tag">Pandas</span>
+          <span class="tag">NumPy</span>
+          <span class="tag">Scikit-learn</span>
+          <span class="tag">XGBoost</span>
+          <span class="tag">SHAP</span>
+          <span class="tag">Matplotlib</span>
+          <span class="tag">Seaborn</span>
+          <span class="tag">Streamlit</span>
+          <span class="tag">Streamlit Cloud</span>
+          <span class="tag">OpenAQ API v3</span>
+          <span class="tag">REST API</span>
+          <span class="tag">Time-Series ML</span>
+          <span class="tag">Feature Engineering</span>
+          <span class="tag">UCI ML Repository</span>
+          <span class="tag">Jupyter Notebook</span>
+        </div>
+      </div>
+
+      <div class="project-card-footer">
+        <a href="https://github.com/emaadkalantarii/Urban-Air-Quality-Intelligence-Platform"
+           target="_blank" rel="noopener" class="btn btn-primary">
+          <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          View on GitHub
+        </a>
+        <a href="https://urban-air-quality-intelligence-platform.streamlit.app/"
+           target="_blank" rel="noopener" class="btn btn-primary" style="background: #ff4b4b; border-color: #ff4b4b;">
+          <svg viewBox="0 0 24 24" style="fill:white;" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.04c-.76 1.32-1.53 2.63-2.29 3.95L12 9.93l2.29-3.94C13.53 4.67 12.76 3.36 12 2.04zM4.1 15.48l4.57-2.64-2.28-3.95L2.1 11.53c.66 1.31 1.32 2.63 2 3.95zm15.8 0c.67-1.32 1.33-2.64 2-3.95l-4.29-2.64-2.28 3.95 4.57 2.64zM7.43 17.14l-.01 5.27 4.57-2.64.01-5.27-4.57 2.64zm9.14 0-4.57-2.64.01 5.27 4.57 2.64-.01-5.27z"/></svg>
+          Live App ↗
+        </a>
+      </div>
+    </article>
+
     <!-- ── GitHub CTA ─────────────────────────────────────── -->
     <article class="project-card fade-in">
       <div class="project-card-header" style="padding: 28px 36px;">
