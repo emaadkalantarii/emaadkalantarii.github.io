@@ -68,26 +68,26 @@
         <p class="project-card-desc">
           A fine-grained image classification system capable of identifying <strong>120 dog breeds</strong>
           from the Stanford Dogs Dataset (20,580 images). The project explores the full deep learning
-          lifecycle — from data preprocessing and augmentation design through distributed GPU training
-          to final evaluation — demonstrating strong generalization with a top-1 test accuracy of 84.20%.
+          lifecycle — from data preprocessing and augmentation design through GPU training
+          to final evaluation — demonstrating strong generalization with a top-1 test accuracy of 84.56%.
         </p>
 
         <!-- Metrics -->
         <div class="project-metrics">
           <div class="metric-item">
-            <div class="metric-value">84.20%</div>
+            <div class="metric-value">84.56%</div>
             <div class="metric-label">Top-1 Accuracy</div>
           </div>
           <div class="metric-item">
-            <div class="metric-value">96.54%</div>
+            <div class="metric-value">96.89%</div>
             <div class="metric-label">Top-3 Accuracy</div>
           </div>
           <div class="metric-item">
-            <div class="metric-value">98.05%</div>
+            <div class="metric-value">98.25%</div>
             <div class="metric-label">Top-5 Accuracy</div>
           </div>
           <div class="metric-item">
-            <div class="metric-value">0.67%</div>
+            <div class="metric-value">0.28%</div>
             <div class="metric-label">Generalization Gap</div>
           </div>
           <div class="metric-item">
@@ -105,8 +105,8 @@
           <li>Applied transfer learning with a pretrained <strong>ResNet50 (ImageNet)</strong> backbone, replacing the final classification head for 120-class output on fine-grained dog breed recognition.</li>
           <li>Built a robust preprocessing pipeline using <strong>bounding-box-guided cropping</strong> and 224×224 resizing, yielding ~7% accuracy gain over uncropped baselines.</li>
           <li>Implemented aggressive on-the-fly data augmentation via <strong>Albumentations</strong> (random crops, flips, rotations, colour jitter, Gaussian noise/blur, random erasing) to combat overfitting.</li>
-          <li>Trained over <strong>50 epochs</strong> on a 2-GPU distributed setup (2× Tesla V100, <strong>University of Luxembourg HPC</strong>) using PyTorch DDP, AdamW optimiser with CosineAnnealingLR scheduling, and gradient clipping.</li>
-          <li>Achieved a generalization gap of only <strong>0.67%</strong> between validation and test accuracy, demonstrating strong model robustness and minimal overfitting.</li>
+          <li>Trained over <strong>50 epochs</strong> on a 2-GPU setup (2× Tesla V100, <strong>University of Luxembourg HPC</strong>) using PyTorch, AdamW optimiser with CosineAnnealingLR scheduling, and gradient clipping.</li>
+          <li>Achieved a generalization gap of only <strong>0.28%</strong> between validation and test accuracy, demonstrating strong model robustness and minimal overfitting.</li>
         </ul>
 
         <!-- Tech Stack -->
@@ -116,7 +116,6 @@
           <span class="tag">Torchvision</span>
           <span class="tag">Albumentations</span>
           <span class="tag">CUDA</span>
-          <span class="tag">PyTorch DDP</span>
           <span class="tag">ResNet50</span>
           <span class="tag">Scikit-learn</span>
           <span class="tag">NumPy</span>
