@@ -7,6 +7,47 @@
   <meta name="description" content="Machine learning and data science projects by Emad Kalantari — covering deep learning, computer vision, NLP, tabular ML, explainable AI, and deployed Streamlit applications." />
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
   <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    .project-filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 28px 0 8px;
+    }
+
+    .project-filter-btn {
+      padding: 7px 18px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: background 0.18s, color 0.18s, border-color 0.18s;
+      font-family: inherit;
+      letter-spacing: 0.01em;
+    }
+
+    .project-filter-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .project-filter-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .project-card[data-category] {
+      transition: opacity 0.22s ease, transform 0.22s ease;
+    }
+
+    .project-card.filter-hidden {
+      display: none;
+    }
+  </style>
 </head>
 <body class="page-body">
 
@@ -49,11 +90,22 @@
     </div>
   </div>
 
+  <!-- ── Filter Bar ────────────────────────────────────── -->
+  <div class="container">
+    <div class="project-filter-bar">
+      <button class="project-filter-btn active" data-filter="all">All</button>
+      <button class="project-filter-btn" data-filter="computer-vision">Computer Vision</button>
+      <button class="project-filter-btn" data-filter="deep-learning">Deep Learning</button>
+      <button class="project-filter-btn" data-filter="nlp">NLP</button>
+      <button class="project-filter-btn" data-filter="machine-learning">Data Science & Machine Learning</button>
+    </div>
+  </div>
+
   <!-- ── Projects ───────────────────────────────────────── -->
   <div class="container">
 
     <!-- ── Project 1: Dog Breed Classification ──────────── -->
-    <article class="project-card fade-in">
+    <article class="project-card fade-in" data-category="computer-vision">
       <div class="project-card-header">
         <div>
           <span class="project-card-num">PROJECT 01</span>
@@ -68,26 +120,26 @@
         <p class="project-card-desc">
           A fine-grained image classification system capable of identifying <strong>120 dog breeds</strong>
           from the Stanford Dogs Dataset (20,580 images). The project explores the full deep learning
-          lifecycle — from data preprocessing and augmentation design through GPU training
-          to final evaluation — demonstrating strong generalization with a top-1 test accuracy of 84.56%.
+          lifecycle — from data preprocessing and augmentation design through distributed GPU training
+          to final evaluation — demonstrating strong generalization with a top-1 test accuracy of 84.20%.
         </p>
 
         <!-- Metrics -->
         <div class="project-metrics">
           <div class="metric-item">
-            <div class="metric-value">84.56%</div>
+            <div class="metric-value">84.20%</div>
             <div class="metric-label">Top-1 Accuracy</div>
           </div>
           <div class="metric-item">
-            <div class="metric-value">96.89%</div>
+            <div class="metric-value">96.54%</div>
             <div class="metric-label">Top-3 Accuracy</div>
           </div>
           <div class="metric-item">
-            <div class="metric-value">98.25%</div>
+            <div class="metric-value">98.05%</div>
             <div class="metric-label">Top-5 Accuracy</div>
           </div>
           <div class="metric-item">
-            <div class="metric-value">0.28%</div>
+            <div class="metric-value">0.67%</div>
             <div class="metric-label">Generalization Gap</div>
           </div>
           <div class="metric-item">
@@ -105,8 +157,8 @@
           <li>Applied transfer learning with a pretrained <strong>ResNet50 (ImageNet)</strong> backbone, replacing the final classification head for 120-class output on fine-grained dog breed recognition.</li>
           <li>Built a robust preprocessing pipeline using <strong>bounding-box-guided cropping</strong> and 224×224 resizing, yielding ~7% accuracy gain over uncropped baselines.</li>
           <li>Implemented aggressive on-the-fly data augmentation via <strong>Albumentations</strong> (random crops, flips, rotations, colour jitter, Gaussian noise/blur, random erasing) to combat overfitting.</li>
-          <li>Trained over <strong>50 epochs</strong> on a 2-GPU setup (2× Tesla V100, <strong>University of Luxembourg HPC</strong>) using PyTorch, AdamW optimiser with CosineAnnealingLR scheduling, and gradient clipping.</li>
-          <li>Achieved a generalization gap of only <strong>0.28%</strong> between validation and test accuracy, demonstrating strong model robustness and minimal overfitting.</li>
+          <li>Trained over <strong>50 epochs</strong> on a 2-GPU distributed setup (2× Tesla V100, <strong>University of Luxembourg HPC</strong>) using PyTorch DDP, AdamW optimiser with CosineAnnealingLR scheduling, and gradient clipping.</li>
+          <li>Achieved a generalization gap of only <strong>0.67%</strong> between validation and test accuracy, demonstrating strong model robustness and minimal overfitting.</li>
         </ul>
 
         <!-- Tech Stack -->
@@ -116,6 +168,7 @@
           <span class="tag">Torchvision</span>
           <span class="tag">Albumentations</span>
           <span class="tag">CUDA</span>
+          <span class="tag">PyTorch DDP</span>
           <span class="tag">ResNet50</span>
           <span class="tag">Scikit-learn</span>
           <span class="tag">NumPy</span>
@@ -136,7 +189,7 @@
     </article>
 
     <!-- ── Project 2: Spacecraft Detection ──────────────── -->
-    <article class="project-card fade-in">
+    <article class="project-card fade-in" data-category="computer-vision">
       <div class="project-card-header">
         <div>
           <span class="project-card-num">PROJECT 02</span>
@@ -219,7 +272,7 @@
     </article>
 
     <!-- ── Project 3: EEG Topomap Classifier ───────────────── -->
-    <article class="project-card fade-in">
+    <article class="project-card fade-in" data-category="computer-vision">
       <div class="project-card-header">
         <div>
           <span class="project-card-num">PROJECT 03</span>
@@ -338,7 +391,7 @@
     </article>
 
     <!-- ── Project 4: Signature Origin Classification ──────── -->
-    <article class="project-card fade-in">
+    <article class="project-card fade-in" data-category="deep-learning">
       <div class="project-card-header">
         <div>
           <span class="project-card-num">PROJECT 04</span>
@@ -520,7 +573,7 @@
     </article>
 
     <!-- ── Project 5: LLM Historical Network Extraction ───── -->
-    <article class="project-card fade-in">
+    <article class="project-card fade-in" data-category="nlp">
       <div class="project-card-header">
         <div>
           <span class="project-card-num">PROJECT 05</span>
@@ -683,7 +736,7 @@
     </article>
 
     <!-- ── Project 6: Census Income Prediction ──────────── -->
-    <article class="project-card fade-in">
+    <article class="project-card fade-in" data-category="machine-learning">
       <div class="project-card-header">
         <div>
           <span class="project-card-num">PROJECT 06</span>
@@ -825,7 +878,7 @@
     </article>
 
     <!-- ── Project 7: Employee Attrition Prediction ─────────── -->
-    <article class="project-card fade-in">
+    <article class="project-card fade-in" data-category="machine-learning">
       <div class="project-card-header">
         <div>
           <span class="project-card-num">PROJECT 07</span>
@@ -974,7 +1027,7 @@
     </article>
 
     <!-- ── Project 8: Urban Air Quality Intelligence ─────── -->
-    <article class="project-card fade-in">
+    <article class="project-card fade-in" data-category="machine-learning">
       <div class="project-card-header">
         <div>
           <span class="project-card-num">PROJECT 08</span>
@@ -1213,5 +1266,30 @@
   </footer>
 
   <script src="assets/js/main.js"></script>
+  <script>
+    (function () {
+      var buttons = document.querySelectorAll('.project-filter-btn');
+      var cards   = document.querySelectorAll('.project-card[data-category]');
+
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var filter = btn.getAttribute('data-filter');
+
+          // Update active button
+          buttons.forEach(function (b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+
+          // Show / hide cards
+          cards.forEach(function (card) {
+            if (filter === 'all' || card.getAttribute('data-category') === filter) {
+              card.classList.remove('filter-hidden');
+            } else {
+              card.classList.add('filter-hidden');
+            }
+          });
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
