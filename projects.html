@@ -96,7 +96,7 @@
       <button class="project-filter-btn active" data-filter="all">All</button>
       <button class="project-filter-btn" data-filter="computer-vision">Deep Learning &amp; Computer Vision</button>
       <button class="project-filter-btn" data-filter="machine-learning">Data Science &amp; Machine Learning</button>
-      <button class="project-filter-btn" data-filter="nlp">NLP</button>
+      <button class="project-filter-btn" data-filter="nlp">LLM &amp; NLP</button>
 
     </div>
   </div>
@@ -356,7 +356,7 @@
         <!-- Dataset info box -->
         <div style="margin: 20px 0; padding: 16px 20px; background: var(--bg); border-radius: var(--radius); border: 1px solid var(--border);">
           <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 10px;">Dataset &amp; Training Details</p>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; font-size: 0.85rem;">
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; font-size: 0.85rem;">
             <div><span style="color: var(--text-muted);">Domain:</span> <strong>EEG Neuroscience / BCI</strong></div>
             <div><span style="color: var(--text-muted);">Input size:</span> <strong>128 × 128 px</strong></div>
             <div><span style="color: var(--text-muted);">Normalisation:</span> <strong>ImageNet mean/std</strong></div>
@@ -580,7 +580,7 @@
           <h2 class="project-card-title">Network Data Extraction using LLMs<br>for Historical Documents</h2>
         </div>
         <div style="flex-shrink:0;">
-          <span class="tag tag-green">NLP</span>
+          <span class="tag tag-green">LLM &amp; NLP</span>
         </div>
       </div>
 
@@ -984,7 +984,7 @@
         <!-- SHAP Insights box -->
         <div style="margin: 20px 0; padding: 16px 20px; background: var(--bg); border-radius: var(--radius); border: 1px solid var(--border);">
           <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 10px;">Top Attrition Drivers — SHAP Analysis</p>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; font-size: 0.85rem;">
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; font-size: 0.85rem;">
             <div><span style="color: var(--text-muted);">🔴 Highest risk:</span> <strong>OverTime = Yes</strong></div>
             <div><span style="color: var(--text-muted);">🔴 Risk factor:</span> <strong>Low SatisfactionScore</strong></div>
             <div><span style="color: var(--text-muted);">🔴 Risk factor:</span> <strong>Low IncomePerYearExp</strong></div>
@@ -1186,7 +1186,7 @@
         <!-- SHAP Insights box -->
         <div style="margin: 20px 0; padding: 16px 20px; background: var(--bg); border-radius: var(--radius); border: 1px solid var(--border);">
           <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 10px;">Top SHAP Features — Predicting "Poor" AQI</p>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; font-size: 0.85rem;">
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; font-size: 0.85rem;">
             <div><span style="color: var(--text-muted);">🔴 Rank 1 (|SHAP| 1.511):</span> <strong>NO2GT_rolling_3h_mean</strong></div>
             <div><span style="color: var(--text-muted);">🔴 Rank 2 (|SHAP| 0.548):</span> <strong>NO2GT_lag_1h</strong></div>
             <div><span style="color: var(--text-muted);">🔴 Rank 3 (|SHAP| 0.505):</span> <strong>NOx(GT) sensor</strong></div>
