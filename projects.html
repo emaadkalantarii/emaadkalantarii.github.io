@@ -1255,6 +1255,172 @@
       </div>
     </article>
 
+    <!-- ── Project 9: Urban Development Analytics Pipeline ── -->
+    <article class="project-card fade-in" data-category="data-analytics">
+      <div class="project-card-header">
+        <div>
+          <span class="project-card-num">PROJECT 09</span>
+          <h2 class="project-card-title">Urban Development Analytics Pipeline<br>Chicago Building Permits 2018–2023</h2>
+        </div>
+        <div style="flex-shrink:0;">
+          <span class="tag tag-blue">Data Analytics &amp; Engineering</span>
+        </div>
+      </div>
+
+      <div class="project-card-body">
+        <p class="project-card-desc">
+          An end-to-end data analytics pipeline processing <strong>833,978 municipal building permit records</strong>
+          from the City of Chicago Open Data Portal, built as a freelance-grade analytics engagement for urban
+          planning stakeholders. The project covers every stage of the data lifecycle — raw ingestion, SQL-based
+          cleaning and aggregation, automated Python ETL, statistical analysis, interactive BI dashboard delivery,
+          and Docker containerization — surfacing actionable insights on construction trends, fee revenue, and
+          permitting efficiency across Chicago's 50 wards.
+        </p>
+
+        <!-- Metrics -->
+        <div class="project-metrics">
+          <div class="metric-item">
+            <div class="metric-value">833,978</div>
+            <div class="metric-label">Raw Records</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">819,820</div>
+            <div class="metric-label">After Cleaning</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">−20.7%</div>
+            <div class="metric-label">Permit Drop 2020</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">+44%</div>
+            <div class="metric-label">Processing Time 2018→2023</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">$27.2M</div>
+            <div class="metric-label">Peak Fee Revenue (2019)</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">8</div>
+            <div class="metric-label">SQL Aggregation Queries</div>
+          </div>
+        </div>
+
+        <!-- Pipeline Architecture -->
+        <div style="margin: 24px 0 8px;">
+          <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 14px;">Pipeline Architecture</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">Raw CSV <span style="color: var(--text-muted); font-weight: 400;">833,978 rows</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">load_to_db.py <span style="color: var(--text-muted); font-weight: 400;">SQLite ingestion</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">sql_analysis.py <span style="color: var(--text-muted); font-weight: 400;">8 SQL queries</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">pipeline.py <span style="color: var(--text-muted); font-weight: 400;">ETL + visualizations</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">Tableau Public <span style="color: var(--text-muted); font-weight: 400;">4-view dashboard</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">Docker <span style="color: var(--text-muted); font-weight: 400;">containerized</span></div>
+          </div>
+        </div>
+
+        <!-- Highlights -->
+        <ul class="project-bullets">
+          <li>Designed and implemented a <strong>multi-stage ETL pipeline</strong> ingesting 833,978 raw permit records, programmatically parsing currency-formatted fee columns across 16 fields (stripping <code>$</code> symbols, converting to float) before loading into a <strong>SQLite database</strong> via SQLAlchemy — producing a clean table of 819,820 records after null and quality filters.</li>
+          <li>Built a <strong>SQL aggregation layer</strong> with 8 analytical queries using <code>GROUP BY</code>, <code>COUNT</code>, <code>AVG</code>, <code>SUM</code>, <code>CAST</code>, and date parsing via <code>SUBSTR</code> — covering permit type distribution, ward-level year-over-year trends, community area fee revenue, monthly volume trends, and processing time analysis.</li>
+          <li>Developed an automated <strong>Python ETL pipeline</strong> (Pandas, NumPy) performing date parsing, feature engineering (days_to_issue, year, month, quarter, year_month), outlier removal at the 99th percentile, and export of 10 analysis-ready CSVs — reducing manual data preparation by <strong>~70%</strong>.</li>
+          <li>Produced <strong>5 Matplotlib/Seaborn visualizations</strong>: monthly trend line with fill, horizontal permit type bar chart with value labels, dual-axis yearly volume vs. processing time, ward fee revenue bar chart, and processing time box plot by year — all saved as high-resolution PNGs for reporting.</li>
+          <li>Delivered a <strong>4-view interactive Tableau Public dashboard</strong> — monthly permit trend, permit type breakdown, geographic dot map of 238,496 permit locations across Chicago, and yearly KPI panel — with cross-filter interactivity between views.</li>
+          <li><strong>Containerized the full pipeline</strong> using Docker and docker-compose with a minimal Linux image, volume mounts for data and output directories, and a single-command execution pattern — enabling fully reproducible pipeline runs across environments.</li>
+          <li>Surfaced key findings: <strong>20.7% permit volume decline in 2020</strong> (COVID impact), <strong>44% increase in average processing time</strong> from 17.9 days (2018) to 25.9 days (2023), and average reported construction cost rising from $95K (2018) to $194K (2022).</li>
+        </ul>
+
+        <!-- Key Findings Box -->
+        <div style="margin: 20px 0; padding: 16px 20px; background: var(--bg); border-radius: var(--radius); border: 1px solid var(--border);">
+          <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 10px;">Key Findings &amp; Pipeline Outputs</p>
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; font-size: 0.85rem;">
+            <div><span style="color: var(--text-muted);">Permit volume 2020:</span> <strong>−20.7% (COVID impact)</strong></div>
+            <div><span style="color: var(--text-muted);">Avg processing time 2018→2023:</span> <strong>17.9 → 25.9 days (+44%)</strong></div>
+            <div><span style="color: var(--text-muted);">Peak fee revenue:</span> <strong>$27.2M in 2019</strong></div>
+            <div><span style="color: var(--text-muted);">Avg construction cost 2022:</span> <strong>$194,549 (vs $95,302 in 2018)</strong></div>
+            <div><span style="color: var(--text-muted);">SQL queries:</span> <strong>8 aggregations across 6 dimensions</strong></div>
+            <div><span style="color: var(--text-muted);">Processed CSVs exported:</span> <strong>10 analysis-ready files</strong></div>
+          </div>
+        </div>
+
+        <!-- Dataset info box -->
+        <div style="margin: 20px 0; padding: 16px 20px; background: var(--bg); border-radius: var(--radius); border: 1px solid var(--border);">
+          <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 10px;">Dataset &amp; Pipeline Details</p>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; font-size: 0.85rem;">
+            <div><span style="color: var(--text-muted);">Source:</span> <strong>Chicago Open Data Portal</strong></div>
+            <div><span style="color: var(--text-muted);">Raw records:</span> <strong>833,978</strong></div>
+            <div><span style="color: var(--text-muted);">Clean records:</span> <strong>819,820</strong></div>
+            <div><span style="color: var(--text-muted);">Pipeline range:</span> <strong>2018–2023</strong></div>
+            <div><span style="color: var(--text-muted);">Dashboard records:</span> <strong>238,496</strong></div>
+            <div><span style="color: var(--text-muted);">License:</span> <strong>Public domain</strong></div>
+          </div>
+        </div>
+
+        <!-- Tech Stack -->
+        <div class="tags-row">
+          <span class="tag">Python</span>
+          <span class="tag">SQL</span>
+          <span class="tag">SQLite</span>
+          <span class="tag">SQLAlchemy</span>
+          <span class="tag">Pandas</span>
+          <span class="tag">NumPy</span>
+          <span class="tag">Matplotlib</span>
+          <span class="tag">Seaborn</span>
+          <span class="tag">Tableau</span>
+          <span class="tag">Docker</span>
+          <span class="tag">docker-compose</span>
+          <span class="tag">ETL Pipeline</span>
+          <span class="tag">Data Cleaning</span>
+          <span class="tag">Feature Engineering</span>
+          <span class="tag">Chicago Open Data</span>
+          <span class="tag">Jupyter Notebook</span>
+        </div>
+      </div>
+
+      <div class="project-card-footer">
+        <a href="https://github.com/emaadkalantarii/urban-analytics-pipeline"
+           target="_blank" rel="noopener" class="btn btn-primary">
+          <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          View on GitHub
+        </a>
+        <a href="https://public.tableau.com/app/profile/emad.kalantari/viz/ChicagoUrbanDevelopmentAnalytics/ChicagoUrbanDevelopmentAnalytics20182023?publish=yes"
+           target="_blank" rel="noopener" class="btn btn-primary" style="background: #E97627; border-color: #E97627;">
+          <svg viewBox="0 0 24 24" style="fill:white;" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11.654 0v3.692H9.692v1.846h1.962V9.23h1.846V5.538h1.962V3.692h-1.962V0h-1.846zm-5.308 2.77v2.538H4.154v1.538h2.192v2.539h1.539V6.846h2.192V5.308H7.885V2.769H6.346zM16.5 2.77v2.538h-2.192v1.538H16.5v2.539h1.538V6.846h2.193V5.308H18.04V2.769H16.5zM2.769 8.077v2.538H.577v1.539h2.192v2.538h1.539v-2.538h2.192v-1.539H4.308V8.077H2.769zm9.577 0V10.5H10.5v1.539h1.846v2.423h1.846v-2.423H16v-1.54h-1.808V8.077H12.346zm9.577 0v2.538h-2.192v1.539h2.192v2.538h1.5v-2.538H24v-1.539h-2.077V8.077h-1.5zM6.346 13.5v2.538H4.154v1.539h2.192v2.538h1.539v-2.538h2.192v-1.539H7.885V13.5H6.346zm9.577 0v2.538h-2.192v1.539H16.5v2.538h1.538v-2.538h2.193v-1.539H18.04V13.5H15.923zM11.654 16.5v3.577H9.692v1.846h1.962V24.5h1.846v-2.577h1.962v-1.846h-1.962V16.5h-1.846z"/>
+          </svg>
+          Live Dashboard ↗
+        </a>
+      </div>
+    </article>
+
+    <!-- ── GitHub CTA ─────────────────────────────────────── -->
+    <article class="project-card fade-in">
+      <div class="project-card-header" style="padding: 28px 36px;">
+        <div>
+          <span class="project-card-num">More Work</span>
+          <h2 class="project-card-title" style="font-size: clamp(1.3rem, 2.5vw, 1.8rem);">Explore all projects on GitHub</h2>
+        </div>
+        <div style="flex-shrink:0;">
+          <span class="tag">Open Source</span>
+        </div>
+      </div>
+      <div class="project-card-body" style="padding: 22px 36px;">
+        <p class="project-card-desc" style="margin: 0;">
+          All repositories — including experiments, utilities, and additional work — are available on my GitHub profile.
+        </p>
+      </div>
+      <div class="project-card-footer">
+        <a href="https://github.com/emaadkalantarii" target="_blank" rel="noopener" class="btn btn-primary">
+          <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          View GitHub Profile ↗
+        </a>
+      </div>
+    </article>
+
   </div><!-- /container -->
 
   <!-- ── Footer ─────────────────────────────────────────── -->
