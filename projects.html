@@ -97,6 +97,7 @@
       <button class="project-filter-btn" data-filter="computer-vision">Deep Learning &amp; Computer Vision</button>
       <button class="project-filter-btn" data-filter="machine-learning">Data Science &amp; Machine Learning</button>
       <button class="project-filter-btn" data-filter="data-analytics">Data Analytics &amp; Engineering</button>
+      <button class="project-filter-btn" data-filter="ai-engineering">AI Engineering &amp; MLOps</button>
       <button class="project-filter-btn" data-filter="nlp">LLM &amp; NLP</button>
 
     </div>
@@ -1394,6 +1395,175 @@
             <path d="M11.654 0v3.692H9.692v1.846h1.962V9.23h1.846V5.538h1.962V3.692h-1.962V0h-1.846zm-5.308 2.77v2.538H4.154v1.538h2.192v2.539h1.539V6.846h2.192V5.308H7.885V2.769H6.346zM16.5 2.77v2.538h-2.192v1.538H16.5v2.539h1.538V6.846h2.193V5.308H18.04V2.769H16.5zM2.769 8.077v2.538H.577v1.539h2.192v2.538h1.539v-2.538h2.192v-1.539H4.308V8.077H2.769zm9.577 0V10.5H10.5v1.539h1.846v2.423h1.846v-2.423H16v-1.54h-1.808V8.077H12.346zm9.577 0v2.538h-2.192v1.539h2.192v2.538h1.5v-2.538H24v-1.539h-2.077V8.077h-1.5zM6.346 13.5v2.538H4.154v1.539h2.192v2.538h1.539v-2.538h2.192v-1.539H7.885V13.5H6.346zm9.577 0v2.538h-2.192v1.539H16.5v2.538h1.538v-2.538h2.193v-1.539H18.04V13.5H15.923zM11.654 16.5v3.577H9.692v1.846h1.962V24.5h1.846v-2.577h1.962v-1.846h-1.962V16.5h-1.846z"/>
           </svg>
           Live Dashboard ↗
+        </a>
+      </div>
+    </article>
+
+    <!-- ── Project 10: LexiAssist ───────────────────────── -->
+    <article class="project-card fade-in" data-category="nlp ai-engineering">
+      <div class="project-card-header">
+        <div>
+          <span class="project-card-num">PROJECT 10</span>
+          <h2 class="project-card-title">LexiAssist — Production RAG Chatbot<br>for AI/ML Research</h2>
+        </div>
+        <div style="flex-shrink:0;">
+          <span class="tag tag-green">AI Engineering &amp; MLOps</span>
+        </div>
+      </div>
+
+      <div class="project-card-body">
+        <p class="project-card-desc">
+          An end-to-end production-grade <strong>Retrieval-Augmented Generation (RAG)</strong> system
+          that ingests 145 AI/ML research papers from ArXiv, indexes them into a ChromaDB vector
+          store, and answers natural-language questions with grounded, citation-backed responses and
+          multi-turn conversational memory. The project covers the full AI engineering stack — from
+          automated data ingestion and semantic search through REST API design, pipeline evaluation,
+          containerization, and CI/CD automation — demonstrating how a real LLM application is built
+          and deployed in a production environment.
+        </p>
+
+        <!-- Metrics -->
+        <div class="project-metrics">
+          <div class="metric-item">
+            <div class="metric-value">0.96</div>
+            <div class="metric-label">Answer Relevancy</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">0.70</div>
+            <div class="metric-label">Faithfulness</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">145</div>
+            <div class="metric-label">Papers Ingested</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">394</div>
+            <div class="metric-label">Indexed Chunks</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">6</div>
+            <div class="metric-label">Automated API Tests</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">3-Stage</div>
+            <div class="metric-label">CI/CD Pipeline</div>
+          </div>
+        </div>
+
+        <!-- Pipeline Architecture -->
+        <div style="margin: 20px 0;">
+          <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 12px;">Pipeline Architecture</p>
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 0.8rem;">
+            <span style="padding: 5px 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 6px;">&#x1F4C4; ArXiv API</span>
+            <span style="color: var(--text-muted);">&#x2192;</span>
+            <span style="padding: 5px 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 6px;">&#x2702; Chunking (LangChain)</span>
+            <span style="color: var(--text-muted);">&#x2192;</span>
+            <span style="padding: 5px 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 6px;">&#x1F522; Embeddings (OpenAI)</span>
+            <span style="color: var(--text-muted);">&#x2192;</span>
+            <span style="padding: 5px 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 6px;">&#x1F5C4; ChromaDB</span>
+            <span style="color: var(--text-muted);">&#x2192;</span>
+            <span style="padding: 5px 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 6px;">&#x26D3; RAG Chain</span>
+            <span style="color: var(--text-muted);">&#x2192;</span>
+            <span style="padding: 5px 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 6px;">&#x1F680; FastAPI</span>
+            <span style="color: var(--text-muted);">&#x2192;</span>
+            <span style="padding: 5px 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 6px;">&#x1F4AC; Streamlit UI</span>
+          </div>
+        </div>
+
+        <!-- Highlights -->
+        <ul class="project-bullets">
+          <li>Built a complete <strong>RAG pipeline</strong> using LangChain: ArXiv paper ingestion across 15 AI/ML topics, <strong>RecursiveCharacterTextSplitter</strong> chunking (1,000-char chunks, 200-char overlap), <strong>OpenAI text-embedding-3-small</strong> vector generation, and ChromaDB persistence — producing 394 semantically indexed chunks from 145 papers.</li>
+          <li>Designed a <strong>LangChain RAG chain</strong> with engineered system prompt for hallucination mitigation via context injection, top-5 semantic retrieval, multi-turn <strong>conversational memory</strong> using LangChain message history, and structured <strong>source citation extraction</strong> with deduplication — all wired into a single composable pipeline.</li>
+          <li>Built a production <strong>FastAPI REST backend</strong> with Pydantic request/response validation, CORS middleware, startup chain preloading, and automatic Swagger documentation — separating the API layer cleanly from the RAG logic, with <code>/chat</code>, <code>/health</code>, and <code>/ingest</code> endpoints.</li>
+          <li>Evaluated RAG pipeline quality using a custom <strong>LLM-as-judge framework</strong> built from scratch — GPT-4o-mini independently scores <strong>faithfulness</strong>, <strong>answer relevancy</strong>, <strong>context precision</strong>, and <strong>context recall</strong> across 20 hand-curated question/answer pairs; achieved 0.96 answer relevancy and 0.70 faithfulness with documented analysis of context score limitations.</li>
+          <li>Containerized the full application with <strong>Docker</strong> and <strong>Docker Compose</strong> (multi-service: API + frontend), volume mounts for data and vectorstore persistence, and a pre-built image published to <strong>Docker Hub</strong> — enabling single-command deployment on any machine.</li>
+          <li>Automated the full software delivery lifecycle via a <strong>GitHub Actions CI/CD pipeline</strong>: flake8 linting and black formatting &#x2192; pytest API tests using fixture data (no live external API calls in CI) &#x2192; Docker image build and push to Docker Hub — triggered on every push to <code>main</code>.</li>
+        </ul>
+
+        <!-- Evaluation Results Table -->
+        <div style="margin: 20px 0; padding: 16px 20px; background: var(--bg); border-radius: var(--radius); border: 1px solid var(--border);">
+          <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 10px;">RAG Evaluation Results — LLM-as-Judge (20 Samples)</p>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 14px;">Custom evaluation framework built from scratch — GPT-4o-mini scores each metric independently per sample, mirroring the approach used by production RAG evaluation libraries such as RAGAs.</p>
+          <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem;">
+              <thead>
+                <tr style="border-bottom: 2px solid var(--border);">
+                  <th style="text-align: left; padding: 8px 12px; color: var(--text-muted); font-weight: 600;">Metric</th>
+                  <th style="text-align: center; padding: 8px 12px; color: var(--text-muted); font-weight: 600;">Score</th>
+                  <th style="text-align: left; padding: 8px 12px; color: var(--text-muted); font-weight: 600;">What It Measures</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--border); background: rgba(59,130,246,0.04);">
+                  <td style="padding: 10px 12px; font-weight: 600;">Answer Relevancy</td>
+                  <td style="text-align: center; padding: 10px 12px; font-weight: 700; color: var(--accent);">0.96</td>
+                  <td style="padding: 10px 12px; color: var(--text-muted);">Does the answer directly address the question asked?</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border);">
+                  <td style="padding: 10px 12px; font-weight: 600;">Faithfulness</td>
+                  <td style="text-align: center; padding: 10px 12px; font-weight: 700; color: var(--accent);">0.70</td>
+                  <td style="padding: 10px 12px; color: var(--text-muted);">Are claims grounded in the retrieved documents?</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border);">
+                  <td style="padding: 10px 12px; font-weight: 600;">Context Precision</td>
+                  <td style="text-align: center; padding: 10px 12px; font-weight: 600;">0.56</td>
+                  <td style="padding: 10px 12px; color: var(--text-muted);">Are the retrieved chunks relevant to the query?</td>
+                </tr>
+                <tr>
+                  <td style="padding: 10px 12px; font-weight: 600;">Context Recall</td>
+                  <td style="text-align: center; padding: 10px 12px; font-weight: 600;">0.54</td>
+                  <td style="padding: 10px 12px; color: var(--text-muted);">Does the context contain what's needed to answer?</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 10px;">Context scores reflect abstract-only knowledge base — full PDF ingestion is the identified path to improvement.</p>
+        </div>
+
+        <!-- System Details -->
+        <div style="margin: 20px 0; padding: 16px 20px; background: var(--bg); border-radius: var(--radius); border: 1px solid var(--border);">
+          <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 10px;">System &amp; Pipeline Details</p>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; font-size: 0.85rem;">
+            <div><span style="color: var(--text-muted);">LLM:</span> <strong>GPT-4o-mini</strong></div>
+            <div><span style="color: var(--text-muted);">Embedding model:</span> <strong>text-embedding-3-small</strong></div>
+            <div><span style="color: var(--text-muted);">Vector store:</span> <strong>ChromaDB</strong></div>
+            <div><span style="color: var(--text-muted);">Chunk size / overlap:</span> <strong>1,000 / 200 chars</strong></div>
+            <div><span style="color: var(--text-muted);">Top-k retrieval:</span> <strong>5 chunks per query</strong></div>
+            <div><span style="color: var(--text-muted);">Topics covered:</span> <strong>15 AI/ML domains</strong></div>
+            <div><span style="color: var(--text-muted);">API tests:</span> <strong>6 pytest endpoints</strong></div>
+            <div><span style="color: var(--text-muted);">CI/CD stages:</span> <strong>lint &#x2192; test &#x2192; docker push</strong></div>
+            <div><span style="color: var(--text-muted);">Container image:</span> <strong>Docker Hub (public)</strong></div>
+          </div>
+        </div>
+
+        <!-- Tech Stack -->
+        <div class="tags-row">
+          <span class="tag">Python</span>
+          <span class="tag">LangChain</span>
+          <span class="tag">ChromaDB</span>
+          <span class="tag">OpenAI API</span>
+          <span class="tag">GPT-4o-mini</span>
+          <span class="tag">RAG</span>
+          <span class="tag">Semantic Search</span>
+          <span class="tag">Prompt Engineering</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">Pydantic</span>
+          <span class="tag">Streamlit</span>
+          <span class="tag">Docker</span>
+          <span class="tag">Docker Compose</span>
+          <span class="tag">GitHub Actions</span>
+          <span class="tag">CI/CD</span>
+          <span class="tag">pytest</span>
+          <span class="tag">LLM-as-Judge</span>
+          <span class="tag">Vector Embeddings</span>
+        </div>
+      </div>
+
+      <div class="project-card-footer">
+        <a href="https://github.com/emaadkalantarii/lexiassist"
+           target="_blank" rel="noopener" class="btn btn-primary">
+          <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          View on GitHub
         </a>
       </div>
     </article>
