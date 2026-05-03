@@ -1250,9 +1250,10 @@
           An end-to-end data analytics pipeline processing <strong>833,978 municipal building permit records</strong>
           from the City of Chicago Open Data Portal, built as a freelance-grade analytics engagement for urban
           planning stakeholders. The project covers every stage of the data lifecycle — raw ingestion, SQL-based
-          cleaning and aggregation, automated Python ETL, statistical analysis, interactive BI dashboard delivery,
-          and Docker containerization — surfacing actionable insights on construction trends, fee revenue, and
-          permitting efficiency across Chicago's 50 wards.
+          cleaning and aggregation, automated Python ETL, statistical analysis, dual BI dashboard delivery across
+          <strong>Tableau Public</strong> and <strong>Power BI</strong>, and Docker containerization —
+          surfacing actionable insights on construction trends, fee revenue, and permitting efficiency across
+          Chicago's 50 wards.
         </p>
 
         <!-- Metrics -->
@@ -1278,8 +1279,8 @@
             <div class="metric-label">Peak Fee Revenue (2019)</div>
           </div>
           <div class="metric-item">
-            <div class="metric-value">8</div>
-            <div class="metric-label">SQL Aggregation Queries</div>
+            <div class="metric-value">2</div>
+            <div class="metric-label">BI Dashboards (Tableau + Power BI)</div>
           </div>
         </div>
 
@@ -1293,9 +1294,11 @@
             <span style="color: var(--text-muted); font-size: 1rem;">→</span>
             <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">sql_analysis.py <span style="color: var(--text-muted); font-weight: 400;">8 SQL queries</span></div>
             <span style="color: var(--text-muted); font-size: 1rem;">→</span>
-            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">pipeline.py <span style="color: var(--text-muted); font-weight: 400;">ETL + visualizations</span></div>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">pipeline.py <span style="color: var(--text-muted); font-weight: 400;">ETL + 6 visualizations</span></div>
             <span style="color: var(--text-muted); font-size: 1rem;">→</span>
             <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">Tableau Public <span style="color: var(--text-muted); font-weight: 400;">4-view dashboard</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">+</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">Power BI <span style="color: var(--text-muted); font-weight: 400;">3-page dashboard</span></div>
             <span style="color: var(--text-muted); font-size: 1rem;">→</span>
             <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">Docker <span style="color: var(--text-muted); font-weight: 400;">containerized</span></div>
           </div>
@@ -1306,11 +1309,26 @@
           <li>Designed and implemented a <strong>multi-stage ETL pipeline</strong> ingesting 833,978 raw permit records, programmatically parsing currency-formatted fee columns across 16 fields (stripping <code>$</code> symbols, converting to float) before loading into a <strong>SQLite database</strong> via SQLAlchemy — producing a clean table of 819,820 records after null and quality filters.</li>
           <li>Built a <strong>SQL aggregation layer</strong> with 8 analytical queries using <code>GROUP BY</code>, <code>COUNT</code>, <code>AVG</code>, <code>SUM</code>, <code>CAST</code>, and date parsing via <code>SUBSTR</code> — covering permit type distribution, ward-level year-over-year trends, community area fee revenue, monthly volume trends, and processing time analysis.</li>
           <li>Developed an automated <strong>Python ETL pipeline</strong> (Pandas, NumPy) performing date parsing, feature engineering (days_to_issue, year, month, quarter, year_month), outlier removal at the 99th percentile, and export of 10 analysis-ready CSVs — reducing manual data preparation by <strong>~70%</strong>.</li>
-          <li>Produced <strong>5 Matplotlib/Seaborn visualizations</strong>: monthly trend line with fill, horizontal permit type bar chart with value labels, dual-axis yearly volume vs. processing time, ward fee revenue bar chart, and processing time box plot by year — all saved as high-resolution PNGs for reporting.</li>
-          <li>Delivered a <strong>4-view interactive Tableau Public dashboard</strong> — monthly permit trend, permit type breakdown, geographic dot map of 238,496 permit locations across Chicago, and yearly KPI panel — with cross-filter interactivity between views.</li>
+          <li>Produced <strong>6 Matplotlib/Seaborn visualizations</strong>: monthly trend line, permit type horizontal bar chart, dual-axis yearly volume vs. processing time, neighborhood-labeled ward fee revenue chart, processing time box plot by year, and a year-over-year diverging bar chart — all saved as high-resolution PNGs.</li>
+          <li>Delivered a <strong>4-view interactive Tableau Public dashboard</strong> (monthly trend · permit types · geographic dot map of 238,496 permits · yearly KPI panel) and a complementary <strong>3-page Power BI dashboard</strong> covering financial analysis, operational efficiency, and an executive summary — together providing full stakeholder coverage across geographic, financial, and operational dimensions.</li>
           <li><strong>Containerized the full pipeline</strong> using Docker and docker-compose with a minimal Linux image, volume mounts for data and output directories, and a single-command execution pattern — enabling fully reproducible pipeline runs across environments.</li>
-          <li>Surfaced key findings: <strong>20.7% permit volume decline in 2020</strong> (COVID impact), <strong>44% increase in average processing time</strong> from 17.9 days (2018) to 25.9 days (2023), and average reported construction cost rising from $95K (2018) to $194K (2022).</li>
+          <li>Surfaced key findings: <strong>20.7% permit volume decline in 2020</strong> (COVID impact), <strong>44% increase in average processing time</strong> from 17.9 days (2018) to 25.9 days (2023), Express Permits accounting for 45.7% of total fee revenue, and average reported construction cost rising from $95K (2018) to $194K (2022).</li>
         </ul>
+
+        <!-- Dashboards Box -->
+        <div style="margin: 20px 0; padding: 16px 20px; background: var(--bg); border-radius: var(--radius); border: 1px solid var(--border);">
+          <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 10px;">BI Dashboards</p>
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; font-size: 0.85rem;">
+            <div>
+              <strong style="color: var(--text);">Tableau Public (live)</strong><br>
+              <span style="color: var(--text-muted);">Monthly trend · Permit types · Geographic dot map · Yearly KPIs — cross-filter interactivity</span>
+            </div>
+            <div>
+              <strong style="color: var(--text);">Power BI Desktop (.pbix in repo)</strong><br>
+              <span style="color: var(--text-muted);">Financial analysis · Operational efficiency · Executive summary — 3-page analytical dashboard</span>
+            </div>
+          </div>
+        </div>
 
         <!-- Key Findings Box -->
         <div style="margin: 20px 0; padding: 16px 20px; background: var(--bg); border-radius: var(--radius); border: 1px solid var(--border);">
@@ -1320,7 +1338,7 @@
             <div><span style="color: var(--text-muted);">Avg processing time 2018→2023:</span> <strong>17.9 → 25.9 days (+44%)</strong></div>
             <div><span style="color: var(--text-muted);">Peak fee revenue:</span> <strong>$27.2M in 2019</strong></div>
             <div><span style="color: var(--text-muted);">Avg construction cost 2022:</span> <strong>$194,549 (vs $95,302 in 2018)</strong></div>
-            <div><span style="color: var(--text-muted);">SQL queries:</span> <strong>8 aggregations across 6 dimensions</strong></div>
+            <div><span style="color: var(--text-muted);">Express Permit revenue share:</span> <strong>45.7% of total fees</strong></div>
             <div><span style="color: var(--text-muted);">Processed CSVs exported:</span> <strong>10 analysis-ready files</strong></div>
           </div>
         </div>
@@ -1349,6 +1367,7 @@
           <span class="tag">Matplotlib</span>
           <span class="tag">Seaborn</span>
           <span class="tag">Tableau</span>
+          <span class="tag">Power BI</span>
           <span class="tag">Docker</span>
           <span class="tag">docker-compose</span>
           <span class="tag">ETL Pipeline</span>
