@@ -253,6 +253,26 @@
           </div>
         </div>
 
+        <!-- Detection Pipeline -->
+        <div style="margin: 24px 0 8px;">
+          <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 14px;">Detection Pipeline</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">SPARK 2022 Dataset <span style="color: var(--text-muted); font-weight: 400;">1024×1024 · 11 classes</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">CSV Annotation Parsing <span style="color: var(--text-muted); font-weight: 400;">bbox coordinates</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">YOLO Label Conversion <span style="color: var(--text-muted); font-weight: 400;">normalised x·y·w·h</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">Offline Augmentation <span style="color: var(--text-muted); font-weight: 400;">Albumentations · orbital conditions</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">YOLOv11-Medium <span style="color: var(--text-muted); font-weight: 400;">pretrained · fine-tuned</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">SLURM HPC Training <span style="color: var(--text-muted); font-weight: 400;">35 epochs · Tesla V100 · Iris cluster</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">Inference Pipeline <span style="color: var(--text-muted); font-weight: 400;">class + bbox · ~86% accuracy</span></div>
+          </div>
+        </div>
+
         <!-- Highlights -->
         <ul class="project-bullets">
           <li>Fine-tuned a <strong>YOLOv11-Medium</strong> model on a custom annotated dataset for multi-class detection of ESA spacecraft (SOHO, XMM-Newton, LISA Pathfinder, and others) and space debris.</li>
