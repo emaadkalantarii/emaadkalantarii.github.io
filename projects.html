@@ -163,6 +163,28 @@
           <li>Achieved a generalization gap of only <strong>0.67%</strong> between validation and test accuracy, demonstrating strong model robustness and minimal overfitting.</li>
         </ul>
 
+        <!-- Training Pipeline -->
+        <div style="margin: 24px 0 8px;">
+          <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 14px;">Training Pipeline</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">Stanford Dogs Dataset <span style="color: var(--text-muted); font-weight: 400;">20,580 images · 120 breeds</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">Annotation Parsing <span style="color: var(--text-muted); font-weight: 400;">XML bounding boxes</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">BBox Crop + Resize <span style="color: var(--text-muted); font-weight: 400;">224×224 px · +7% accuracy</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">Stratified Split <span style="color: var(--text-muted); font-weight: 400;">70 / 20 / 10</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">On-the-fly Augmentation <span style="color: var(--text-muted); font-weight: 400;">Albumentations · 10 transforms</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">ResNet50 <span style="color: var(--text-muted); font-weight: 400;">ImageNet pretrained · frozen backbone</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">AdamW + CosineAnnealingLR <span style="color: var(--text-muted); font-weight: 400;">50 epochs · AMP · grad clipping</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">Evaluation <span style="color: var(--text-muted); font-weight: 400;">84.56% Top-1 · 98.25% Top-5</span></div>
+          </div>
+        </div>
+
         <!-- Tech Stack -->
         <div class="tags-row">
           <span class="tag">Python</span>
