@@ -154,15 +154,6 @@
           </div>
         </div>
 
-        <!-- Highlights -->
-        <ul class="project-bullets">
-          <li>Applied transfer learning with a pretrained <strong>ResNet50 (ImageNet)</strong> backbone, replacing the final classification head for 120-class output on fine-grained dog breed recognition.</li>
-          <li>Built a robust preprocessing pipeline using <strong>bounding-box-guided cropping</strong> and 224×224 resizing, yielding ~7% accuracy gain over uncropped baselines.</li>
-          <li>Implemented aggressive on-the-fly data augmentation via <strong>Albumentations</strong> (random crops, flips, rotations, colour jitter, Gaussian noise/blur, random erasing) to combat overfitting.</li>
-          <li>Trained over <strong>50 epochs</strong> on a 2-GPU distributed setup (2× Tesla V100, <strong>University of Luxembourg HPC</strong>) using PyTorch DDP, AdamW optimiser with CosineAnnealingLR scheduling, and gradient clipping.</li>
-          <li>Achieved a generalization gap of only <strong>0.67%</strong> between validation and test accuracy, demonstrating strong model robustness and minimal overfitting.</li>
-        </ul>
-
         <!-- Training Pipeline -->
         <div style="margin: 24px 0 8px;">
           <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 14px;">Training Pipeline</p>
@@ -184,6 +175,15 @@
             <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">Evaluation <span style="color: var(--text-muted); font-weight: 400;">84.56% Top-1 · 98.25% Top-5</span></div>
           </div>
         </div>
+
+        <!-- Highlights -->
+        <ul class="project-bullets">
+          <li>Applied transfer learning with a pretrained <strong>ResNet50 (ImageNet)</strong> backbone, replacing the final classification head for 120-class output on fine-grained dog breed recognition.</li>
+          <li>Built a robust preprocessing pipeline using <strong>bounding-box-guided cropping</strong> and 224×224 resizing, yielding ~7% accuracy gain over uncropped baselines.</li>
+          <li>Implemented aggressive on-the-fly data augmentation via <strong>Albumentations</strong> (random crops, flips, rotations, colour jitter, Gaussian noise/blur, random erasing) to combat overfitting.</li>
+          <li>Trained over <strong>50 epochs</strong> on a 2-GPU distributed setup (2× Tesla V100, <strong>University of Luxembourg HPC</strong>) using PyTorch DDP, AdamW optimiser with CosineAnnealingLR scheduling, and gradient clipping.</li>
+          <li>Achieved a generalization gap of only <strong>0.67%</strong> between validation and test accuracy, demonstrating strong model robustness and minimal overfitting.</li>
+        </ul>
 
         <!-- Tech Stack -->
         <div class="tags-row">
