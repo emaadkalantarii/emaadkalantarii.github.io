@@ -1293,7 +1293,8 @@
           from the City of Chicago Open Data Portal, built as a freelance-grade analytics engagement for urban
           planning stakeholders. The project covers every stage of the data lifecycle — raw ingestion, SQL-based
           cleaning and aggregation, automated Python ETL, statistical analysis, dual BI dashboard delivery across
-          <strong>Tableau Public</strong> and <strong>Power BI</strong>, and Docker containerization —
+          <strong>Tableau Public</strong> and <strong>Power BI</strong>, Docker containerization, and a
+          <strong>GitHub Actions CI/CD pipeline</strong> for automated validation —
           surfacing actionable insights on construction trends, fee revenue, and permitting efficiency across
           Chicago's 50 wards.
         </p>
@@ -1343,6 +1344,8 @@
             <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">Power BI <span style="color: var(--text-muted); font-weight: 400;">3-page dashboard</span></div>
             <span style="color: var(--text-muted); font-size: 1rem;">→</span>
             <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">Docker <span style="color: var(--text-muted); font-weight: 400;">containerized</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">GitHub Actions <span style="color: var(--text-muted); font-weight: 400;">CI/CD validation</span></div>
           </div>
         </div>
 
@@ -1353,7 +1356,7 @@
           <li>Developed an automated <strong>Python ETL pipeline</strong> (Pandas, NumPy) performing date parsing, feature engineering (days_to_issue, year, month, quarter, year_month), outlier removal at the 99th percentile, and export of 10 analysis-ready CSVs — reducing manual data preparation by <strong>~70%</strong>.</li>
           <li>Produced <strong>6 Matplotlib/Seaborn visualizations</strong>: monthly trend line, permit type horizontal bar chart, dual-axis yearly volume vs. processing time, neighborhood-labeled ward fee revenue chart, processing time box plot by year, and a year-over-year diverging bar chart — all saved as high-resolution PNGs.</li>
           <li>Delivered a <strong>4-view interactive Tableau Public dashboard</strong> (monthly trend · permit types · geographic dot map of 238,496 permits · yearly KPI panel) and a complementary <strong>3-page Power BI dashboard</strong> covering financial analysis, operational efficiency, and an executive summary — together providing full stakeholder coverage across geographic, financial, and operational dimensions.</li>
-          <li><strong>Containerized the full pipeline</strong> using Docker and docker-compose with a minimal Linux image, volume mounts for data and output directories, and a single-command execution pattern — enabling fully reproducible pipeline runs across environments.</li>
+          <li><strong>Containerized the full pipeline</strong> using Docker and docker-compose with a minimal Linux image, volume mounts for data and output directories, and a single-command execution pattern — enabling fully reproducible pipeline runs across environments; implemented a <strong>GitHub Actions CI/CD workflow</strong> that automatically generates a 500-row synthetic test dataset and validates the full pipeline on every push to <code>main</code>, verifying all 10 processed CSVs and 6 visualizations are produced correctly.</li>
           <li>Surfaced key findings: <strong>20.7% permit volume decline in 2020</strong> (COVID impact), <strong>44% increase in average processing time</strong> from 17.9 days (2018) to 25.9 days (2023), Express Permits accounting for 45.7% of total fee revenue, and average reported construction cost rising from $95K (2018) to $194K (2022).</li>
         </ul>
 
@@ -1412,6 +1415,8 @@
           <span class="tag">Power BI</span>
           <span class="tag">Docker</span>
           <span class="tag">docker-compose</span>
+          <span class="tag">GitHub Actions</span>
+          <span class="tag">CI/CD</span>
           <span class="tag">ETL Pipeline</span>
           <span class="tag">Data Cleaning</span>
           <span class="tag">Feature Engineering</span>
