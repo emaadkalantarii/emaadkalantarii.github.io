@@ -973,6 +973,26 @@
           </div>
         </div>
 
+        <!-- ML Pipeline Architecture -->
+        <div style="margin: 24px 0 8px;">
+          <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 14px;">ML Pipeline</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">IBM HR Dataset <span style="color: var(--text-muted); font-weight: 400;">1,470 employees · 35 features</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">EDA <span style="color: var(--text-muted); font-weight: 400;">84/16 imbalance · driver identification</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">Preprocessing <span style="color: var(--text-muted); font-weight: 400;">encoding · StandardScaler · SMOTE</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">Feature Engineering <span style="color: var(--text-muted); font-weight: 400;">7 new features · top 30 selected</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">Model Training <span style="color: var(--text-muted); font-weight: 400;">LR · RF · XGBoost · 5-fold CV</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">SHAP Interpretability <span style="color: var(--text-muted); font-weight: 400;">global + per-employee explanations</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">Streamlit App <span style="color: var(--text-muted); font-weight: 400;">live deployment · Streamlit Cloud</span></div>
+          </div>
+        </div>
+
         <!-- Highlights -->
         <ul class="project-bullets">
           <li>Conducted thorough <strong>Exploratory Data Analysis</strong> across all 35 features, identifying key attrition drivers including overtime patterns, compensation gaps relative to experience, satisfaction scores, and early-tenure risk — informing every subsequent modeling decision.</li>
