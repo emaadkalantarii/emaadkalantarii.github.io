@@ -1630,6 +1630,178 @@
       </div>
     </article>
 
+    <!-- ── Project 12: Olist E-Commerce Analytics ──────────── -->
+    <article class="project-card fade-in" data-category="data-analytics">
+      <div class="project-card-header">
+        <div>
+          <span class="project-card-num">PROJECT 12</span>
+          <h2 class="project-card-title">Olist E-Commerce Analytics Pipeline<br>Brazilian Market · 2016–2018</h2>
+        </div>
+        <div style="flex-shrink:0;">
+          <span class="tag tag-green">Data Analytics &amp; Engineering</span>
+        </div>
+      </div>
+
+      <div class="project-card-body">
+        <p class="project-card-desc">
+          An end-to-end data analytics pipeline processing <strong>96,457 delivered orders</strong> from
+          the Brazilian Olist e-commerce platform across <strong>9 relational tables</strong>, covering
+          the full analytics lifecycle — raw CSV ingestion to <strong>AWS S3</strong>, <strong>PostgreSQL</strong>
+          ETL with a Bronze/Silver architecture, 18-check automated data quality validation,
+          <strong>SQL-based business analysis</strong> across 8 dimensions, 7 Python visualizations, and
+          interactive BI dashboard delivery across <strong>three platforms</strong> (Tableau Public, Power BI,
+          and Streamlit) — surfacing actionable insights on revenue trends, delivery performance, and customer
+          satisfaction across 27 Brazilian states.
+        </p>
+
+        <!-- Metrics -->
+        <div class="project-metrics">
+          <div class="metric-item">
+            <div class="metric-value">96,457</div>
+            <div class="metric-label">Orders Analyzed</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">R$8.7M</div>
+            <div class="metric-label">Total Revenue</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">10.9%</div>
+            <div class="metric-label">Late Delivery Rate</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">−40%</div>
+            <div class="metric-label">Review Score Drop (Late)</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">18</div>
+            <div class="metric-label">Data Quality Checks</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">3</div>
+            <div class="metric-label">BI Dashboards</div>
+          </div>
+        </div>
+
+        <!-- Pipeline Architecture -->
+        <div style="margin: 24px 0 8px;">
+          <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 14px;">Pipeline Architecture</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">9 Raw CSVs <span style="color: var(--text-muted); font-weight: 400;">Olist dataset</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">AWS S3 <span style="color: var(--text-muted); font-weight: 400;">Bronze data lake</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">PostgreSQL <span style="color: var(--text-muted); font-weight: 400;">9 raw tables · FK constraints</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">ETL + Cleaning <span style="color: var(--text-muted); font-weight: 400;">6 clean tables · Silver layer</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">Validation <span style="color: var(--text-muted); font-weight: 400;">18 automated checks</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">SQL Analysis <span style="color: var(--text-muted); font-weight: 400;">8 business queries</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">Tableau + Power BI + Streamlit <span style="color: var(--text-muted); font-weight: 400;">3 dashboards</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">GitHub Actions <span style="color: var(--text-muted); font-weight: 400;">CI/CD · 12 tests</span></div>
+          </div>
+        </div>
+
+        <!-- Highlights -->
+        <ul class="project-bullets">
+          <li>Designed and implemented a <strong>multi-stage ETL pipeline</strong> ingesting 9 Olist relational tables into <strong>PostgreSQL 15</strong> with enforced foreign key constraints across all child tables; uploaded all raw source files to <strong>AWS S3</strong> as a Bronze data lake layer using boto3, then applied a <strong>Bronze/Silver architecture</strong> — producing 6 clean tables from 9 raw sources with zero orphaned foreign keys confirmed by automated referential integrity checks.</li>
+          <li>Applied three distinct professional <strong>missing value strategies</strong> across 10 identified data quality issues: contextual filtering (2,479 order items from non-delivered orders removed), meaningful imputation (610 null product categories filled with <code>'unknown'</code> to preserve real revenue), and intentional null retention (58,247 null review comments kept as meaningful absence of feedback) — each decision documented with an explicit business reason.</li>
+          <li>Built a <strong>SQL analytical layer</strong> with 8 business queries using multi-table <code>JOIN</code>s across 6 related tables, <code>GROUP BY</code> aggregations across revenue, delivery, payment, seller, and retention dimensions, <code>CASE WHEN</code> for conditional aggregation, and <code>COALESCE</code> for null-safe category joins; engineered 2 domain-driven features (<code>delivery_days</code>, <code>is_late</code>) and ran <strong>18 automated data quality checks</strong> across raw, clean, referential integrity, and business logic categories.</li>
+          <li>Produced <strong>7 Matplotlib/Seaborn visualizations</strong> including a dual-axis monthly revenue trend, late delivery rate bar chart with national average reference line, side-by-side review score impact analysis, and payment method breakdown — all queried directly from PostgreSQL and saved as 150 DPI PNGs; delivered a <strong>4-view interactive Tableau Public dashboard</strong> (live URL), a <strong>4-view Power BI dashboard</strong> with DAX calculated columns and conditional formatting, and a <strong>4-page Streamlit application</strong>.</li>
+          <li>Surfaced key findings: <strong>AL state late delivery rate of 24.1%</strong> vs 10.9% national average — a geographic concentration pointing to logistics infrastructure gaps in Brazil's northeast; late orders averaging <strong>2.55 stars vs 4.21</strong> for on-time deliveries with <strong>46% of late orders receiving 1-star reviews</strong>; Health &amp; Beauty as top revenue category at R$1.24M; and a <strong>3% customer repeat purchase rate</strong> flagging a significant retention gap for business strategy.</li>
+          <li>Containerized the <strong>PostgreSQL environment using Docker</strong> and docker-compose for one-command setup; implemented a <strong>GitHub Actions CI/CD pipeline</strong> running 12 pytest unit tests covering cleaning logic, revenue calculations, timestamp extraction, and data integrity rules on every push to <code>main</code> — ensuring pipeline correctness is automatically validated with every code change.</li>
+        </ul>
+
+        <!-- BI Dashboards Box -->
+        <div style="margin: 20px 0; padding: 16px 20px; background: var(--bg); border-radius: var(--radius); border: 1px solid var(--border);">
+          <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 10px;">BI Dashboards</p>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; font-size: 0.85rem;">
+            <div>
+              <strong style="color: var(--text);">Tableau Public (live)</strong><br>
+              <span style="color: var(--text-muted);">Revenue trend · Top categories · Delivery by state · Review vs delivery — live public URL</span>
+            </div>
+            <div>
+              <strong style="color: var(--text);">Power BI Desktop (.pbix in repo)</strong><br>
+              <span style="color: var(--text-muted);">DAX calculated columns · Conditional formatting · Top N filtering · Dual Y-axis</span>
+            </div>
+            <div>
+              <strong style="color: var(--text);">Streamlit App (4 pages)</strong><br>
+              <span style="color: var(--text-muted);">Overview KPIs · Revenue &amp; Products · Delivery Performance · Customer Insights</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Key Findings Box -->
+        <div style="margin: 20px 0; padding: 16px 20px; background: var(--bg); border-radius: var(--radius); border: 1px solid var(--border);">
+          <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 10px;">Key Findings &amp; Pipeline Outputs</p>
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; font-size: 0.85rem;">
+            <div><span style="color: var(--text-muted);">Top revenue category:</span> <strong>Health &amp; Beauty · R$1.24M</strong></div>
+            <div><span style="color: var(--text-muted);">Worst late delivery state:</span> <strong>AL · 24.1% (vs 10.9% avg)</strong></div>
+            <div><span style="color: var(--text-muted);">On-time avg review score:</span> <strong>4.21 / 5</strong></div>
+            <div><span style="color: var(--text-muted);">Late delivery avg review score:</span> <strong>2.55 / 5 (−40%)</strong></div>
+            <div><span style="color: var(--text-muted);">Credit card transaction share:</span> <strong>74% of all payments</strong></div>
+            <div><span style="color: var(--text-muted);">Customer repeat purchase rate:</span> <strong>3.0% — retention gap flagged</strong></div>
+          </div>
+        </div>
+
+        <!-- Dataset & Pipeline Details Box -->
+        <div style="margin: 20px 0; padding: 16px 20px; background: var(--bg); border-radius: var(--radius); border: 1px solid var(--border);">
+          <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 10px;">Dataset &amp; Pipeline Details</p>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; font-size: 0.85rem;">
+            <div><span style="color: var(--text-muted);">Source:</span> <strong>Olist / Kaggle (CC BY-NC-SA 4.0)</strong></div>
+            <div><span style="color: var(--text-muted);">Raw tables:</span> <strong>9 relational CSVs</strong></div>
+            <div><span style="color: var(--text-muted);">Total orders:</span> <strong>99,441</strong></div>
+            <div><span style="color: var(--text-muted);">Analysis scope:</span> <strong>96,457 delivered orders</strong></div>
+            <div><span style="color: var(--text-muted);">Dashboard flat table:</span> <strong>110,814 rows · 21 columns</strong></div>
+            <div><span style="color: var(--text-muted);">Date range:</span> <strong>Sep 2016 – Aug 2018</strong></div>
+          </div>
+        </div>
+
+        <!-- Tech Stack -->
+        <div class="tags-row">
+          <span class="tag">Python</span>
+          <span class="tag">SQL</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">SQLAlchemy</span>
+          <span class="tag">Pandas</span>
+          <span class="tag">NumPy</span>
+          <span class="tag">Matplotlib</span>
+          <span class="tag">Seaborn</span>
+          <span class="tag">Tableau</span>
+          <span class="tag">Power BI</span>
+          <span class="tag">Streamlit</span>
+          <span class="tag">AWS S3</span>
+          <span class="tag">boto3</span>
+          <span class="tag">Docker</span>
+          <span class="tag">docker-compose</span>
+          <span class="tag">GitHub Actions</span>
+          <span class="tag">CI/CD</span>
+          <span class="tag">ETL Pipeline</span>
+          <span class="tag">Data Quality</span>
+          <span class="tag">Bronze/Silver Architecture</span>
+          <span class="tag">Feature Engineering</span>
+          <span class="tag">DAX</span>
+        </div>
+      </div>
+
+      <div class="project-card-footer">
+        <a href="https://github.com/emaadkalantarii/ecommerce-analytics-olist"
+           target="_blank" rel="noopener" class="btn btn-primary">
+          <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          View on GitHub
+        </a>
+        <a href="https://public.tableau.com/app/profile/emad.kalantari/viz/OlistE-CommerceAnalytics_17776790877880/Dashboard1"
+           target="_blank" rel="noopener" class="btn btn-primary" style="background: #E97627; border-color: #E97627;">
+          <svg viewBox="0 0 24 24" style="fill:white;" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11.654 0v3.692H9.692v1.846h1.962V9.23h1.846V5.538h1.962V3.692h-1.962V0h-1.846zm-5.308 2.77v2.538H4.154v1.538h2.192v2.539h1.539V6.846h2.192V5.308H7.885V2.769H6.346zM16.5 2.77v2.538h-2.192v1.538H16.5v2.539h1.538V6.846h2.193V5.308H18.04V2.769H16.5zM2.769 8.077v2.538H.577v1.539h2.192v2.538h1.539v-2.538h2.192v-1.539H4.308V8.077H2.769zm9.577 0V10.5H10.5v1.539h1.846v2.423h1.846v-2.423H16v-1.54h-1.808V8.077H12.346zm9.577 0v2.538h-2.192v1.539h2.192v2.538h1.5v-2.538H24v-1.539h-2.077V8.077h-1.5zM6.346 13.5v2.538H4.154v1.539h2.192v2.538h1.539v-2.538h2.192v-1.539H7.885V13.5H6.346zm9.577 0v2.538h-2.192v1.539H16.5v2.538h1.538v-2.538h2.193v-1.539H18.04V13.5H15.923zM11.654 16.5v3.577H9.692v1.846h1.962V24.5h1.846v-2.577h1.962v-1.846h-1.962V16.5h-1.846z"/>
+          </svg>
+          Live Dashboard ↗
+        </a>
+      </div>
+    </article>
+
     <!-- ── GitHub CTA ─────────────────────────────────────── -->
     <article class="project-card fade-in">
       <div class="project-card-header" style="padding: 28px 36px;">
