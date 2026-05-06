@@ -1630,6 +1630,156 @@
       </div>
     </article>
 
+    <!-- ── Project 11: NYC Taxi Analytics Pipeline ─────────── -->
+    <article class="project-card fade-in" data-category="data-analytics">
+      <div class="project-card-header">
+        <div>
+          <span class="project-card-num">PROJECT 11</span>
+          <h2 class="project-card-title">NYC Taxi Analytics Pipeline<br>End-to-End Batch Data Engineering</h2>
+        </div>
+        <div style="flex-shrink:0;">
+          <span class="tag tag-blue">Data Analytics &amp; Engineering</span>
+        </div>
+      </div>
+
+      <div class="project-card-body">
+        <p class="project-card-desc">
+          An end-to-end <strong>production-style batch data engineering pipeline</strong> processing
+          <strong>9.55 million real NYC Yellow Taxi trip records (Q1 2024)</strong> through a full
+          <strong>Medallion Architecture</strong> (Bronze → Silver → Gold), covering every stage of
+          the modern data engineering workflow — PySpark-based ETL, data quality validation,
+          <strong>Apache Airflow</strong> orchestration, <strong>dbt</strong> SQL transformation,
+          <strong>AWS S3</strong> cloud data lake storage, <strong>PostgreSQL</strong> warehousing,
+          Docker containerization, <strong>GitHub Actions CI/CD</strong>, and a 5-page interactive
+          <strong>Streamlit</strong> analytics dashboard — demonstrating how a real-world data
+          engineering team would build, schedule, validate, and serve a large-scale data pipeline.
+        </p>
+
+        <!-- Metrics -->
+        <div class="project-metrics">
+          <div class="metric-item">
+            <div class="metric-value">9.55M</div>
+            <div class="metric-label">Raw Trips Ingested</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">8.47M</div>
+            <div class="metric-label">Clean Trips (Silver)</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">$234.8M</div>
+            <div class="metric-label">Q1 2024 Revenue</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">17/18</div>
+            <div class="metric-label">Data Quality Checks</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">8</div>
+            <div class="metric-label">dbt SQL Models</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-value">17</div>
+            <div class="metric-label">Dashboard Charts</div>
+          </div>
+        </div>
+
+        <!-- Pipeline Architecture -->
+        <div style="margin: 24px 0 8px;">
+          <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 14px;">Pipeline Architecture</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">NYC TLC Parquet <span style="color: var(--text-muted); font-weight: 400;">3 files · Q1 2024</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">extract.py <span style="color: var(--text-muted); font-weight: 400;">Bronze · 9.55M rows · AWS S3</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">transform_silver.py <span style="color: var(--text-muted); font-weight: 400;">Clean + 10 features · AWS S3</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">transform_gold.py <span style="color: var(--text-muted); font-weight: 400;">4 aggregation tables · AWS S3</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">validate.py <span style="color: var(--text-muted); font-weight: 400;">18 quality checks · HTML report</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">load.py <span style="color: var(--text-muted); font-weight: 400;">PostgreSQL via JDBC</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">dbt <span style="color: var(--text-muted); font-weight: 400;">4 staging views + 4 mart tables</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">Airflow DAG <span style="color: var(--text-muted); font-weight: 400;">7 tasks · daily 06:00 UTC</span></div>
+            <span style="color: var(--text-muted); font-size: 1rem;">→</span>
+            <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 14px; font-size: 0.85rem; font-weight: 500;">Streamlit <span style="color: var(--text-muted); font-weight: 400;">5-page dashboard · 17 charts</span></div>
+          </div>
+        </div>
+
+        <!-- Highlights -->
+        <ul class="project-bullets">
+          <li>Implemented a <strong>PySpark ETL pipeline</strong> with explicit schema definition (faster than inference), reading 9.55M real NYC taxi trip records across 3 Parquet files; removed <strong>1,075,337 invalid records (11.25%)</strong> — including negative fares, GPS-glitch distances, and timestamp-corrupted trips — and engineered <strong>10 domain-driven features</strong> (<code>trip_duration_minutes</code>, <code>speed_mph</code>, <code>time_of_day</code> bucketing, <code>is_weekend</code>, <code>fare_per_mile</code>, <code>tip_percentage</code>, <code>payment_type_desc</code>) covering the full Silver transformation layer.</li>
+          <li>Integrated <strong>AWS S3 as a cloud data lake</strong> using <strong>boto3</strong> with Hive-style partitioned Parquet storage — Bronze partitioned by <code>VendorID</code>, Silver by <code>pickup_month</code> — uploaded automatically after each pipeline stage; implemented <code>USE_S3=false</code> local fallback so the pipeline runs without AWS credentials for development.</li>
+          <li>Built <strong>8 dbt SQL models</strong> (4 staging views + 4 mart tables) on top of PostgreSQL using advanced SQL: <strong>window functions</strong> (<code>LAG()</code>, <code>NTILE(4)</code>, <code>AVG() OVER</code> rolling windows), <strong>PARTITION BY</strong> for monthly market share, <strong>CASE WHEN</strong> demand classification, and <strong>NULLIF</strong> for division-by-zero safety — surfacing findings including <strong>28 zones (10.8%) driving 80% of total Q1 revenue</strong> (Pareto) and credit card tip rate of ~20% vs near 0% for cash.</li>
+          <li>Designed an <strong>Apache Airflow DAG</strong> with 7 tasks, daily cron scheduling (<code>0 6 * * *</code>), 1 retry per task with 5-minute delay, and execution timeouts — orchestrating the full Extract → Transform → Validate → Load workflow end-to-end; loaded Gold layer tables to <strong>PostgreSQL via JDBC</strong> with an indexed schema (5 indexes) for optimised analytical queries.</li>
+          <li>Implemented <strong>18 automated data quality checks</strong> across Silver and Gold layers (17/18 passing) generating an HTML validation report — checks cover null detection, range validation, referential integrity, and statistical plausibility; ran <strong>10 pytest unit tests</strong> and <strong>flake8 linting</strong> in a parallel <strong>GitHub Actions CI/CD workflow</strong> triggered on every push to <code>main</code>.</li>
+          <li>Delivered a <strong>5-page, 17-chart Streamlit dashboard</strong> connecting live to PostgreSQL — featuring a <strong>Pareto revenue concentration curve</strong> (28 zones = 80% of revenue), a <strong>heatmap of trip demand by hour × day of week</strong>, rolling revenue averages, NTILE location tier analysis, and payment behaviour insights — containerized with <strong>Docker Compose</strong> alongside PostgreSQL, Airflow, and Spark in a single-command startup environment.</li>
+        </ul>
+
+        <!-- Key Insights Box -->
+        <div style="margin: 20px 0; padding: 16px 20px; background: var(--bg); border-radius: var(--radius); border: 1px solid var(--border);">
+          <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 10px;">Key Analytical Findings</p>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; font-size: 0.85rem;">
+            <div><span style="color: var(--text-muted);">Busiest hour:</span> <strong>19:00 — 461,200 trips</strong></div>
+            <div><span style="color: var(--text-muted);">Revenue concentration:</span> <strong>28 zones = 80% of $234.8M</strong></div>
+            <div><span style="color: var(--text-muted);">Credit card share:</span> <strong>63.9% of all trips</strong></div>
+            <div><span style="color: var(--text-muted);">Tip rate — credit card:</span> <strong>~20% vs ~0% for cash</strong></div>
+            <div><span style="color: var(--text-muted);">Night avg fare:</span> <strong>$20.39 (highest time period)</strong></div>
+            <div><span style="color: var(--text-muted);">Invalid data removed:</span> <strong>1,075,337 rows (11.25%)</strong></div>
+          </div>
+        </div>
+
+        <!-- Pipeline Outputs Box -->
+        <div style="margin: 20px 0; padding: 16px 20px; background: var(--bg); border-radius: var(--radius); border: 1px solid var(--border);">
+          <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 10px;">Pipeline Outputs &amp; Infrastructure</p>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; font-size: 0.85rem;">
+            <div><span style="color: var(--text-muted);">Dataset:</span> <strong>NYC TLC Yellow Taxi Q1 2024</strong></div>
+            <div><span style="color: var(--text-muted);">Raw records:</span> <strong>9,554,778</strong></div>
+            <div><span style="color: var(--text-muted);">Clean records:</span> <strong>8,471,484</strong></div>
+            <div><span style="color: var(--text-muted);">Gold tables:</span> <strong>4 (509 + 258 + 96 + 18 rows)</strong></div>
+            <div><span style="color: var(--text-muted);">dbt mart tables:</span> <strong>4 (analytics schema)</strong></div>
+            <div><span style="color: var(--text-muted);">Cloud storage:</span> <strong>AWS S3 · eu-west-1</strong></div>
+            <div><span style="color: var(--text-muted);">Services (Docker):</span> <strong>PostgreSQL · Airflow · Spark</strong></div>
+            <div><span style="color: var(--text-muted);">CI/CD:</span> <strong>test + lint · parallel jobs</strong></div>
+            <div><span style="color: var(--text-muted);">License:</span> <strong>NYC TLC Open Data</strong></div>
+          </div>
+        </div>
+
+        <!-- Tech Stack -->
+        <div class="tags-row">
+          <span class="tag">Python</span>
+          <span class="tag">PySpark</span>
+          <span class="tag">Apache Airflow</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">dbt</span>
+          <span class="tag">AWS S3</span>
+          <span class="tag">boto3</span>
+          <span class="tag">Docker</span>
+          <span class="tag">Docker Compose</span>
+          <span class="tag">GitHub Actions</span>
+          <span class="tag">CI/CD</span>
+          <span class="tag">Streamlit</span>
+          <span class="tag">Plotly</span>
+          <span class="tag">SQL</span>
+          <span class="tag">Apache Parquet</span>
+          <span class="tag">JDBC</span>
+          <span class="tag">pytest</span>
+          <span class="tag">Medallion Architecture</span>
+          <span class="tag">ETL Pipeline</span>
+          <span class="tag">Data Quality</span>
+        </div>
+      </div>
+
+      <div class="project-card-footer">
+        <a href="https://github.com/emaadkalantarii/nyc-taxi-pipeline"
+           target="_blank" rel="noopener" class="btn btn-primary">
+          <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          View on GitHub
+        </a>
+      </div>
+    </article>
+
     <!-- ── Project 12: Olist E-Commerce Analytics ──────────── -->
     <article class="project-card fade-in" data-category="data-analytics">
       <div class="project-card-header">
